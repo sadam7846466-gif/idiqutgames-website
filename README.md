@@ -52,11 +52,30 @@ dig +short idiqutgames.com A
 
 | Dosya | Ne işe yarar |
 |---|---|
-| `index.html` | Sitenin tamamı (HTML + CSS tek dosyada) |
+| `index.html` | Sitenin tamamı (HTML + CSS + JS tek dosyada) |
+| `assets/` | Logo görselleri — aşağıya bak |
 | `CNAME` | GitHub Pages'e özel domain'i söyler — **silme** |
+| `.nojekyll` | GitHub'ın dosyaları olduğu gibi yayınlamasını sağlar — **silme** |
 | `app-ads.txt` | **AdMob için zorunlu.** Google bunu `idiqutgames.com/app-ads.txt` adresinde arar |
 | `robots.txt` | Arama motorlarına izin verir |
 | `sitemap.xml` | Google indexleme için |
+
+### assets/ — logo dosyaları
+
+Orijinal logolardan (`~/Downloads/şirket için/logo/`) üretildi. Siyah zemin
+şeffaflaştırıldı, palet-PNG ile sıkıştırıldı.
+
+| Dosya | Nerede kullanılıyor | Boyut |
+|---|---|---|
+| `logo-mark.png` | Hero, header, oyun kartı, footer (şeffaf) | 53 KB |
+| `wordmark.png` | Hero ve header yazısı (beyaz, kırmızı Q çizgisi korundu) | 6 KB |
+| `logo-lockup.png` | Basın kullanımı için tam kilit — sayfada kullanılmıyor | 96 KB |
+| `og-image.png` | WhatsApp/X/Facebook link önizlemesi (1200×630) | 111 KB |
+| `icon-512.png` `apple-touch-icon.png` `favicon-32.png` | Tarayıcı sekmesi ve telefon ana ekranı | — |
+
+Sayfanın yüklediği toplam görsel: **~59 KB**.
+
+**Marka renkleri:** kırmızı `#F41420` · mavi `#2A63FF` · zemin `#08080A`
 
 ## Siteyi güncelleme
 
