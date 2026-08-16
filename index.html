@@ -6,7 +6,7 @@
 <title>İdiqut Games — Independent Mobile Game Studio</title>
 <meta name="description" content="İdiqut Games is an independent studio building small, sharp games for mobile. Our first title is in development.">
 <link rel="canonical" href="https://idiqutgames.com/">
-<meta name="theme-color" content="#08080A">
+<meta name="theme-color" content="#09090B">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://idiqutgames.com/">
@@ -24,11 +24,10 @@
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
 <link rel="icon" href="/assets/icon-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/mark-arc-left.png">
-<link rel="preload" as="image" href="/assets/mark-stroke.png">
-<link rel="preload" as="image" href="/assets/mark-sun.png">
-<link rel="preload" as="image" href="/assets/mark-arc-right.png">
-<link rel="preload" as="image" href="/assets/wordmark.png">
+<link rel="preload" as="image" href="/assets/art-ink.png">
+<link rel="preload" as="image" href="/assets/art-banner.png">
+<link rel="preload" as="image" href="/assets/art-seal.png">
+<link rel="preload" as="image" href="/assets/wordmark2.png">
 
 <script type="application/ld+json">
 {
@@ -45,15 +44,16 @@
 
 <style>
   :root{
-    --bg:#08080A;
-    --bg-2:#0D0D11;
-    --fg:#F4F4F6;
-    --muted:#9294A2;
-    --faint:#5E606C;
-    --line:rgba(255,255,255,.09);
-    --line-soft:rgba(255,255,255,.055);
-    --red:#F41420;
-    --blue:#2A63FF;
+    --bg:#09090B;
+    --bg-2:#101013;
+    --fg:#EDE9E3;          /* kemik beyazi — logodaki panelden */
+    --bone:#D2CDC6;
+    --muted:#8E8A83;
+    --faint:#5C5A55;
+    --red:#C0141A;         /* arayuz vurgusu */
+    --red-deep:#A80B0A;    /* logodan olculen marka kizili */
+    --line:rgba(210,205,198,.11);
+    --line-soft:rgba(210,205,198,.06);
     --head:64px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
     --wrap:1120px;
@@ -75,164 +75,125 @@
   }
 
   img{max-width:100%;height:auto;display:block}
-
   a{color:inherit}
 
-  :focus-visible{
-    outline:2px solid var(--blue);
-    outline-offset:3px;
-    border-radius:2px;
-  }
+  :focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
 
-  .wrap{
-    width:100%;
-    max-width:var(--wrap);
-    margin:0 auto;
-    padding:0 clamp(22px,5vw,48px);
-  }
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(22px,5vw,48px)}
 
-  .skip{
-    position:absolute;left:-9999px;top:0;
-    background:var(--fg);color:var(--bg);
-    padding:12px 18px;z-index:100;border-radius:0 0 8px 0;
-  }
+  .skip{position:absolute;left:-9999px;top:0;background:var(--fg);color:var(--bg);padding:12px 18px;z-index:100}
   .skip:focus{left:0}
 
   /* ═══ HEADER ═══ */
   header{
-    position:fixed;
-    inset:0 0 auto 0;
-    height:var(--head);
-    z-index:50;
-    display:flex;
-    align-items:center;
-    background:rgba(8,8,10,0);
+    position:fixed;inset:0 0 auto 0;height:var(--head);z-index:50;
+    display:flex;align-items:center;
+    background:rgba(9,9,11,0);
     border-bottom:1px solid transparent;
-    transition:background .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+    transition:background .3s ease,border-color .3s ease;
   }
   header.solid{
-    background:rgba(8,8,10,.82);
-    -webkit-backdrop-filter:saturate(160%) blur(14px);
-    backdrop-filter:saturate(160%) blur(14px);
+    background:rgba(9,9,11,.84);
+    -webkit-backdrop-filter:saturate(150%) blur(14px);
+            backdrop-filter:saturate(150%) blur(14px);
     border-bottom-color:var(--line-soft);
   }
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:block;flex:none;text-decoration:none}
+  .brand img{width:clamp(96px,15vw,124px)}
 
-  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
-  .brand img.m{width:22px}
-  .brand img.w{width:96px;opacity:.95}
-
-  nav{display:flex;align-items:center;gap:clamp(18px,3.4vw,34px)}
+  nav{display:flex;align-items:center;gap:clamp(17px,3.3vw,34px)}
   nav a{
-    text-decoration:none;
-    font-size:.8rem;
-    font-weight:500;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
-    transition:color .18s ease;
-    white-space:nowrap;
+    text-decoration:none;font-size:.78rem;font-weight:500;
+    letter-spacing:.17em;text-transform:uppercase;color:var(--muted);
+    transition:color .18s ease;white-space:nowrap;
   }
   nav a:hover{color:var(--fg)}
 
   /* ═══ HERO ═══ */
   .hero{
-    position:relative;
-    min-height:100svh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    position:relative;min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;
-    padding:calc(var(--head) + 40px) clamp(22px,5vw,48px) 96px;
+    padding:calc(var(--head) + 28px) clamp(22px,5vw,48px) 92px;
     overflow:hidden;
   }
-
   .hero .glow{position:absolute;pointer-events:none;z-index:0;border-radius:50%}
   .hero .glow.r{
-    top:-14%;left:50%;transform:translateX(-58%);
-    width:min(90vw,720px);aspect-ratio:1;
-    background:radial-gradient(circle,rgba(244,20,32,.15) 0%,rgba(244,20,32,.04) 42%,transparent 68%);
+    top:6%;left:50%;transform:translateX(-4%);
+    width:min(96vw,780px);aspect-ratio:1;
+    background:radial-gradient(circle,rgba(168,11,10,.17) 0%,rgba(168,11,10,.05) 40%,transparent 68%);
   }
-  .hero .glow.b{
-    top:22%;left:50%;transform:translateX(10%);
-    width:min(84vw,660px);aspect-ratio:1;
-    background:radial-gradient(circle,rgba(42,99,255,.16) 0%,rgba(42,99,255,.04) 44%,transparent 70%);
+  .hero .glow.w{
+    top:-6%;left:50%;transform:translateX(-58%);
+    width:min(80vw,620px);aspect-ratio:1;
+    background:radial-gradient(circle,rgba(210,205,198,.06) 0%,rgba(210,205,198,.018) 42%,transparent 70%);
   }
-
   .hero > *:not(.glow){position:relative;z-index:1}
 
-  /* ─── firca darbesi animasyonu ─── */
-  .hero .mark{
+  /* ─── illustrasyon katmanlari ─── */
+  .art{
     position:relative;
-    width:clamp(126px,21vw,196px);
-    aspect-ratio:640/720;
-    margin-bottom:clamp(28px,4.5vw,40px);
+    width:clamp(248px,43vw,424px);
+    aspect-ratio:762/780;
+    margin-bottom:clamp(26px,4vw,38px);
   }
-  .hero .mark .ly{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:contain;
-  }
+  .art .al{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 
-  /* Gizli baslangic dogrudan CSS'te — JS'i beklemez, boylece
-     animasyon baslamadan once logo bir an parlamaz.
-     Maske desteklenmiyorsa blok hic uygulanmaz, logo normal gorunur. */
+  /* Gizli baslangic CSS'te durur — JS beklenmez, parlama olmaz.
+     Maske desteklenmiyorsa blok uygulanmaz, logo normal gorunur. */
   @supports ((-webkit-mask-image:linear-gradient(#000,#000)) or (mask-image:linear-gradient(#000,#000))){
-    .mark .ly{
-      -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 48%,transparent 100%);
-              mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 48%,transparent 100%);
-      -webkit-mask-size:100% 300%;
-              mask-size:100% 300%;
-      -webkit-mask-repeat:no-repeat;
-              mask-repeat:no-repeat;
-      -webkit-mask-position:0% 100%;
-              mask-position:0% 100%;
+    .art .ink{
+      -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 49%,transparent 100%);
+              mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 49%,transparent 100%);
+      -webkit-mask-size:100% 300%;      mask-size:100% 300%;
+      -webkit-mask-repeat:no-repeat;    mask-repeat:no-repeat;
+      -webkit-mask-position:0% 100%;    mask-position:0% 100%;
     }
-    .mark .sun{
-      -webkit-mask-image:none;mask-image:none;
-      opacity:0;
-      transform:scale(.4);
+    .art .ban{
+      -webkit-mask-image:linear-gradient(to right,#000 0%,#000 38%,transparent 50%,transparent 100%);
+              mask-image:linear-gradient(to right,#000 0%,#000 38%,transparent 50%,transparent 100%);
+      -webkit-mask-size:300% 100%;      mask-size:300% 100%;
+      -webkit-mask-repeat:no-repeat;    mask-repeat:no-repeat;
+      -webkit-mask-position:100% 0%;    mask-position:100% 0%;
     }
+    .art .sea{opacity:0;transform:scale(1.75) rotate(-7deg)}
   }
 
-  @keyframes brush{
+  @keyframes inkDown{
     from{-webkit-mask-position:0% 100%;mask-position:0% 100%}
     to  {-webkit-mask-position:0% 0%;  mask-position:0% 0%}
   }
-  @keyframes dab{
-    0%  {opacity:0;transform:scale(.35)}
-    62% {opacity:1;transform:scale(1.09)}
-    100%{opacity:1;transform:scale(1)}
+  @keyframes banRight{
+    from{-webkit-mask-position:100% 0%;mask-position:100% 0%}
+    to  {-webkit-mask-position:0% 0%;  mask-position:0% 0%}
+  }
+  @keyframes stamp{
+    0%  {opacity:0;transform:scale(1.75) rotate(-7deg)}
+    58% {opacity:1;transform:scale(.93) rotate(1.5deg)}
+    100%{opacity:1;transform:scale(1) rotate(0)}
   }
 
-  .mark.on .arc-l {animation:brush .86s cubic-bezier(.36,.06,.24,1) .05s forwards}
-  .mark.on .stroke{animation:brush .74s cubic-bezier(.36,.06,.24,1) .46s forwards}
-  .mark.on .sun   {animation:dab   .52s cubic-bezier(.28,1.1,.4,1)  .84s forwards}
-  .mark.on .arc-r {animation:brush .82s cubic-bezier(.36,.06,.24,1) 1.02s forwards}
+  .art.on .ink{animation:inkDown  .98s cubic-bezier(.34,.05,.2,1)  .06s forwards}
+  .art.on .ban{animation:banRight .92s cubic-bezier(.28,.06,.2,1)  .64s forwards}
+  .art.on .sea{animation:stamp    .48s cubic-bezier(.3,1.35,.5,1) 1.40s forwards}
 
-  .hero .word{width:clamp(232px,36vw,368px);margin-bottom:clamp(26px,4vw,34px)}
+  .hero .word{width:clamp(238px,39vw,392px);margin-bottom:clamp(24px,3.6vw,32px)}
 
   .hero p{
-    font-size:clamp(1.06rem,2.6vw,1.3rem);
-    line-height:1.5;
-    letter-spacing:-.012em;
-    color:var(--fg);
-    max-width:34ch;
+    font-size:clamp(1.04rem,2.5vw,1.26rem);
+    line-height:1.5;letter-spacing:-.01em;
+    color:var(--fg);max-width:34ch;
   }
-
   .hero .rule{
-    width:56px;height:2px;margin:clamp(26px,4vw,34px) auto 0;
-    background:linear-gradient(90deg,var(--red),var(--blue));
+    width:56px;height:2px;margin:clamp(24px,3.6vw,32px) auto 0;
+    background:linear-gradient(90deg,var(--red-deep),var(--red));
     border-radius:2px;
   }
 
   .scroll{
-    position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
-    z-index:1;
-    font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:1;
+    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
     color:var(--faint);text-decoration:none;
     display:flex;flex-direction:column;align-items:center;gap:9px;
     transition:color .2s ease;
@@ -247,139 +208,88 @@
 
   /* ═══ SECTIONS ═══ */
   section{padding:clamp(84px,12vw,140px) 0;position:relative}
-  #games{overflow:hidden}
   section + section{border-top:1px solid var(--line-soft)}
+  #games{overflow:hidden}
 
   .label{
     display:flex;align-items:center;gap:13px;
-    font-size:.68rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
-    color:var(--faint);
-    margin-bottom:clamp(26px,4vw,38px);
+    font-size:.67rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--faint);margin-bottom:clamp(24px,3.6vw,34px);
   }
-  .label::before{
-    content:"";width:26px;height:1px;background:var(--red);flex:none;
-  }
+  .label::before{content:"";width:26px;height:1px;background:var(--red);flex:none}
 
   h2{
     font-size:clamp(1.85rem,5.4vw,3rem);
-    font-weight:600;
-    line-height:1.1;
-    letter-spacing:-.028em;
-    max-width:18ch;
+    font-weight:600;line-height:1.1;letter-spacing:-.028em;max-width:18ch;
   }
 
-  /* iki kolonlu bolum basligi */
-  .head{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:clamp(24px,4vw,34px);
-    align-items:start;
-  }
+  .head{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,34px);align-items:start}
   @media (min-width:900px){
-    .head{
-      grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);
-      gap:clamp(48px,7vw,104px);
-    }
+    .head{grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:clamp(48px,7vw,104px)}
     .head h2{margin-bottom:0}
     .head-r{padding-top:.5em}
   }
 
   .prose{max-width:56ch;color:var(--muted);font-size:clamp(1rem,2vw,1.075rem);line-height:1.72}
   .prose + .prose{margin-top:1.1em}
-  .prose strong{color:var(--fg);font-weight:500}
-  .prose em{color:var(--fg);font-style:normal;font-weight:500}
+  .prose em{color:var(--bone);font-style:normal;font-weight:500}
 
-  /* principles */
   .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(238px,1fr));
-    gap:1px;
-    margin-top:clamp(52px,7vw,76px);
-    background:var(--line-soft);
-    border:1px solid var(--line-soft);
-    border-radius:12px;
-    overflow:hidden;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));
+    gap:1px;margin-top:clamp(52px,7vw,76px);
+    background:var(--line-soft);border:1px solid var(--line-soft);
+    border-radius:12px;overflow:hidden;
   }
   .cell{background:var(--bg);padding:clamp(26px,3.6vw,34px);transition:background .25s ease}
   .cell:hover{background:var(--bg-2)}
-  .cell .n{
-    font-size:.68rem;font-weight:600;letter-spacing:.2em;
-    color:var(--red);margin-bottom:15px;
-  }
+  .cell .n{font-size:.67rem;font-weight:600;letter-spacing:.2em;color:var(--red);margin-bottom:15px}
   .cell h3{font-size:1.06rem;font-weight:600;letter-spacing:-.012em;margin-bottom:9px}
   .cell p{color:var(--muted);font-size:.94rem;line-height:1.62}
 
-  /* games */
   .card{
     margin-top:clamp(40px,5.5vw,58px);
-    border:1px solid var(--line);
-    border-radius:14px;
+    border:1px solid var(--line);border-radius:14px;
     background:
-      radial-gradient(120% 140% at 88% 10%,rgba(42,99,255,.09) 0%,transparent 58%),
+      radial-gradient(120% 140% at 88% 8%,rgba(168,11,10,.12) 0%,transparent 58%),
       linear-gradient(180deg,var(--bg-2),var(--bg));
     padding:clamp(30px,4.6vw,52px);
-    display:flex;
-    align-items:center;
-    gap:clamp(26px,4.6vw,54px);
-    flex-wrap:wrap;
+    display:flex;align-items:center;gap:clamp(26px,4.6vw,54px);flex-wrap:wrap;
   }
-  .card .art{
-    flex:none;width:clamp(78px,13vw,112px);opacity:.9;
-  }
+  .card .art-seal{flex:none;width:clamp(52px,8vw,74px);opacity:.92}
   .card .meta{flex:1;min-width:210px}
   .card .status{
     display:inline-flex;align-items:center;gap:9px;
-    font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:100px;
-    padding:6px 14px 6px 11px;
-    margin-bottom:17px;
+    font-size:.67rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--line);border-radius:100px;
+    padding:6px 14px 6px 11px;margin-bottom:17px;
   }
   .dot{
     width:6px;height:6px;border-radius:50%;background:var(--red);flex:none;
-    box-shadow:0 0 0 0 rgba(244,20,32,.55);
-    animation:pulse 2.6s ease-out infinite;
+    box-shadow:0 0 0 0 rgba(192,20,26,.55);animation:pulse 2.6s ease-out infinite;
   }
   @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(244,20,32,.5)}
-    70%{box-shadow:0 0 0 8px rgba(244,20,32,0)}
-    100%{box-shadow:0 0 0 0 rgba(244,20,32,0)}
+    0%{box-shadow:0 0 0 0 rgba(192,20,26,.5)}
+    70%{box-shadow:0 0 0 8px rgba(192,20,26,0)}
+    100%{box-shadow:0 0 0 0 rgba(192,20,26,0)}
   }
   .card h3{font-size:clamp(1.25rem,3.2vw,1.6rem);font-weight:600;letter-spacing:-.02em;margin-bottom:11px}
   .card p{color:var(--muted);max-width:48ch;line-height:1.65}
 
-  /* contact */
   .mail{
-    display:inline-block;
-    margin-top:clamp(12px,2vw,18px);
-    font-size:clamp(1.28rem,4.6vw,2.15rem);
-    font-weight:500;
-    letter-spacing:-.028em;
-    text-decoration:none;
-    color:var(--fg);
-    padding-bottom:6px;
-    background-image:linear-gradient(90deg,var(--red),var(--blue));
-    background-size:100% 2px;
-    background-repeat:no-repeat;
-    background-position:0 100%;
-    transition:opacity .18s ease;
-    word-break:break-word;
+    display:inline-block;margin-top:clamp(12px,2vw,18px);
+    font-size:clamp(1.28rem,4.6vw,2.15rem);font-weight:500;letter-spacing:-.028em;
+    text-decoration:none;color:var(--fg);padding-bottom:6px;
+    background-image:linear-gradient(90deg,var(--red-deep),var(--red));
+    background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;
+    transition:opacity .18s ease;word-break:break-word;
   }
   .mail:hover{opacity:.72}
 
-  /* ═══ FOOTER ═══ */
-  footer{
-    border-top:1px solid var(--line-soft);
-    padding:44px 0 52px;
-  }
-  footer .wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:22px;flex-wrap:wrap;
-  }
-  footer img{width:20px;opacity:.6}
-  footer .copy{font-size:.79rem;color:var(--faint);letter-spacing:.01em}
-  footer nav a{font-size:.72rem}
+  footer{border-top:1px solid var(--line-soft);padding:44px 0 52px}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+  footer img{width:22px;opacity:.55}
+  footer .copy{font-size:.79rem;color:var(--faint)}
+  footer nav a{font-size:.71rem}
 
   /* ═══ REVEAL ═══ */
   .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.22,.7,.3,1),transform .8s cubic-bezier(.22,.7,.3,1)}
@@ -387,56 +297,37 @@
   .rv.d1{transition-delay:.09s}
   .rv.d2{transition-delay:.18s}
   .rv.d3{transition-delay:.27s}
-
-  /* hero yazilari firca animasyonundan sonra girer */
-  .rv.hd1{transition-delay:1.52s}
-  .rv.hd2{transition-delay:1.70s}
-  .rv.hd3{transition-delay:1.84s}
+  .rv.hd1{transition-delay:1.60s}
+  .rv.hd2{transition-delay:1.80s}
+  .rv.hd3{transition-delay:1.94s}
   .hero.no-cine .rv.hd1{transition-delay:.10s}
   .hero.no-cine .rv.hd2{transition-delay:.20s}
   .hero.no-cine .rv.hd3{transition-delay:.30s}
 
-  /* ─── murekkep dokusu ─── */
+  /* ═══ MUREKKEP DOKUSU ═══ */
   body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:2;
-    pointer-events:none;
-    opacity:.045;
+    content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size:180px 180px;
   }
 
-  /* ─── imlec isigi ─── */
+  /* ═══ IMLEC ISIGI ═══ */
   .cursor-light{
-    position:fixed;
-    top:0;left:0;
-    width:620px;height:620px;
-    margin:-310px 0 0 -310px;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:1;
-    opacity:0;
-    background:radial-gradient(circle,rgba(255,255,255,.055) 0%,rgba(255,255,255,.016) 40%,transparent 68%);
-    transform:translate3d(-50vw,-50vh,0);
-    transition:opacity .5s ease;
-    will-change:transform;
+    position:fixed;top:0;left:0;width:620px;height:620px;margin:-310px 0 0 -310px;
+    border-radius:50%;pointer-events:none;z-index:1;opacity:0;
+    background:radial-gradient(circle,rgba(210,205,198,.05) 0%,rgba(210,205,198,.014) 40%,transparent 68%);
+    transform:translate3d(-50vw,-50vh,0);transition:opacity .5s ease;will-change:transform;
   }
   .cursor-light.lit{opacity:1}
   @media (hover:none),(pointer:coarse){.cursor-light{display:none}}
 
-  /* ─── kaydirmada derinlik ─── */
+  /* ═══ FILIGRAN ═══ */
   .watermark{
-    position:absolute;
-    top:50%;left:50%;
-    width:min(112vw,940px);
-    aspect-ratio:640/720;
+    position:absolute;top:50%;left:50%;
+    width:min(108vw,880px);aspect-ratio:762/780;
     transform:translate3d(-50%,-50%,0);
-    opacity:.032;
-    pointer-events:none;
-    z-index:0;
-    background:url("/assets/logo-mark.png") center/contain no-repeat;
+    opacity:.035;pointer-events:none;z-index:0;
+    background:url("/assets/art-ink.png") center/contain no-repeat;
     will-change:transform;
   }
   #games .wrap{position:relative;z-index:1}
@@ -444,23 +335,22 @@
   @media (prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
     .dot,.scroll::after{animation:none}
-    .mark .ly{-webkit-mask-image:none!important;mask-image:none!important}
-    .mark .sun{opacity:1!important;transform:none!important}
+    .art .ink,.art .ban{-webkit-mask-image:none!important;mask-image:none!important}
+    .art .sea{opacity:1!important;transform:none!important}
     .cursor-light{display:none}
     .watermark{transform:translate3d(-50%,-50%,0)!important}
   }
 
   @media (max-width:560px){
-    .brand img.w{width:80px}
-    nav a{font-size:.7rem;letter-spacing:.1em}
-    .card{flex-direction:column;align-items:flex-start;text-align:left}
+    nav a{font-size:.69rem;letter-spacing:.1em}
+    .card{flex-direction:column;align-items:flex-start}
   }
 </style>
 
 <noscript><style>
-  /* JS kapaliysa: hicbir sey gizli kalmasin */
-  .mark .ly{-webkit-mask-image:none!important;mask-image:none!important}
-  .mark .sun{opacity:1!important;transform:none!important}
+  /* JS kapaliysa hicbir sey gizli kalmasin */
+  .art .ink,.art .ban{-webkit-mask-image:none!important;mask-image:none!important}
+  .art .sea{opacity:1!important;transform:none!important}
   .rv{opacity:1!important;transform:none!important}
   .cursor-light{display:none}
 </style></noscript>
@@ -472,8 +362,7 @@
 <header id="hdr">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="İdiqut Games — home">
-      <img class="m" src="/assets/logo-mark.png" alt="">
-      <img class="w" src="/assets/wordmark.png" alt="İdiqut Games">
+      <img src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169">
     </a>
     <nav aria-label="Main">
       <a href="#studio">Studio</a>
@@ -487,16 +376,17 @@
 
   <!-- ═══ HERO ═══ -->
   <div class="hero" id="top">
+    <span class="glow w"></span>
     <span class="glow r"></span>
-    <span class="glow b"></span>
 
-    <div class="mark" id="mark" role="img" aria-label="İdiqut Games emblem">
-      <img class="ly arc-l"  src="/assets/mark-arc-left.png"  alt="" width="640" height="720" fetchpriority="high">
-      <img class="ly stroke" src="/assets/mark-stroke.png"    alt="" width="640" height="720">
-      <img class="ly arc-r"  src="/assets/mark-arc-right.png" alt="" width="640" height="720">
-      <img class="ly sun"    src="/assets/mark-sun.png"       alt="" width="640" height="720">
+    <div class="art" id="art" role="img"
+         aria-label="İdiqut Games emblem: a lone standard-bearer on horseback beneath a crimson banner">
+      <img class="al ink" src="/assets/art-ink.png"    alt="" width="900" height="921" fetchpriority="high">
+      <img class="al ban" src="/assets/art-banner.png" alt="" width="900" height="921">
+      <img class="al sea" src="/assets/art-seal.png"   alt="" width="900" height="921">
     </div>
-    <img class="word rv hd1" src="/assets/wordmark.png" alt="İdiqut Games" width="900" height="210">
+
+    <img class="word rv hd1" src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169">
     <p class="rv hd2">We build small, sharp games for mobile.</p>
     <div class="rule rv hd3"></div>
 
@@ -520,7 +410,7 @@
           <p class="prose rv d2">
             The name comes from <em>İdiqut</em>, the title carried by the rulers of the
             Uyghur Kingdom of Qocho — roughly <em>sacred fortune</em>. The mark keeps
-            that origin: a rising sun, two brush strokes, and a face turned toward it.
+            that origin: ink on paper, a lone standard-bearer, and a banner still flying.
           </p>
         </div>
       </div>
@@ -563,7 +453,7 @@
       </div>
 
       <div class="card rv d1">
-        <img class="art" src="/assets/logo-mark.png" alt="" width="640" height="720" loading="lazy">
+        <img class="art-seal" src="/assets/seal.png" alt="" width="155" height="220" loading="lazy">
         <div class="meta">
           <span class="status"><span class="dot" aria-hidden="true"></span>In development</span>
           <h3>First title</h3>
@@ -598,7 +488,7 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/logo-mark.png" alt="" width="640" height="720" loading="lazy">
+    <img src="/assets/seal.png" alt="" width="155" height="220" loading="lazy">
     <p class="copy">© 2026 İdiqut Games. All rights reserved.</p>
     <nav aria-label="Footer">
       <a href="#studio">Studio</a>
@@ -614,29 +504,26 @@
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ── firca darbesi acilisi ──
-  // maske desteklenmiyorsa hic dokunma: logo oldugu gibi gorunur
-  var mark = document.getElementById('mark');
+  // ── acilis animasyonu ──
+  var art  = document.getElementById('art');
   var hero = document.querySelector('.hero');
   var canMask = window.CSS && CSS.supports &&
                 (CSS.supports('mask-image','linear-gradient(#000,#000)') ||
                  CSS.supports('-webkit-mask-image','linear-gradient(#000,#000)'));
 
-  if (mark && canMask && !reduce) {
+  if (art && canMask && !reduce) {
     requestAnimationFrame(function(){
-      requestAnimationFrame(function(){ mark.classList.add('on'); });
+      requestAnimationFrame(function(){ art.classList.add('on'); });
     });
   } else if (hero) {
-    hero.classList.add('no-cine');   // animasyon yok, yazilar beklemesin
+    hero.classList.add('no-cine');
   }
 
-  // ── header arka plani ──
+  // ── header + kaydirmaya bagli derinlik ──
   var hdr = document.getElementById('hdr');
-
-  // ── kaydirmaya bagli derinlik ──
   var wm = document.getElementById('wm');
   var glowR = document.querySelector('.hero .glow.r');
-  var glowB = document.querySelector('.hero .glow.b');
+  var glowW = document.querySelector('.hero .glow.w');
   var ticking = false;
 
   function frame(){
@@ -644,27 +531,23 @@
     hdr.classList.toggle('solid', y > 24);
 
     if (!reduce) {
-      if (glowR) glowR.style.transform = 'translateX(-58%) translateY(' + (y * .16) + 'px)';
-      if (glowB) glowB.style.transform = 'translateX(10%) translateY(' + (y * .10) + 'px)';
+      if (glowR) glowR.style.transform = 'translateX(-4%) translateY('  + (y * .15) + 'px)';
+      if (glowW) glowW.style.transform = 'translateX(-58%) translateY(' + (y * .09) + 'px)';
 
       if (wm) {
         var r = wm.parentNode.getBoundingClientRect();
         var vh = window.innerHeight || 1;
-        // bolum ekrandan gecerken -1 .. 1
         var p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
         p = Math.max(-1.4, Math.min(1.4, p));
         wm.style.transform =
-          'translate3d(-50%,calc(-50% + ' + (p * 76).toFixed(1) + 'px),0)' +
-          ' rotate(' + (p * 5).toFixed(2) + 'deg)' +
+          'translate3d(-50%,calc(-50% + ' + (p * 74).toFixed(1) + 'px),0)' +
+          ' rotate(' + (p * 4).toFixed(2) + 'deg)' +
           ' scale(' + (1 + Math.abs(p) * .07).toFixed(3) + ')';
       }
     }
     ticking = false;
   }
-
-  function onScroll(){
-    if (!ticking) { ticking = true; requestAnimationFrame(frame); }
-  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
   frame();
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll, {passive:true});
@@ -672,7 +555,7 @@
   // ── imlec isigi ──
   var cl = document.getElementById('clight');
   if (cl && !reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    var mx = -999, my = -999, pending = false;
+    var mx = 0, my = 0, pending = false;
     window.addEventListener('mousemove', function(e){
       mx = e.clientX; my = e.clientY;
       if (!cl.classList.contains('lit')) cl.classList.add('lit');
@@ -686,20 +569,20 @@
     }, {passive:true});
     document.addEventListener('mouseleave', function(){ cl.classList.remove('lit'); });
   }
-})();
 
-  // gorunur olunca yumusak giris
+  // ── gorunur olunca yumusak giris ──
   var items = document.querySelectorAll('.rv');
-  if (!window.IntersectionObserver || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    items.forEach(function(el){ el.classList.add('in'); });
+  if (!window.IntersectionObserver || reduce) {
+    Array.prototype.forEach.call(items, function(el){ el.classList.add('in'); });
   } else {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
     }, {rootMargin:'0px 0px -8% 0px', threshold:.06});
-    items.forEach(function(el){ io.observe(el); });
+    Array.prototype.forEach.call(items, function(el){ io.observe(el); });
   }
+})();
 </script>
 
 </body>

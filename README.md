@@ -62,21 +62,25 @@ dig +short idiqutgames.com A
 
 ### assets/ — logo dosyaları
 
-Orijinal logolardan (`~/Downloads/şirket için/logo/`) üretildi. Siyah zemin
-şeffaflaştırıldı, palet-PNG ile sıkıştırıldı.
+Kaynak: `~/Downloads/şirket için/logo-v2/idiqut-logo-v2.png` (1254×1254).
+Bağlı-bileşen analiziyle katmanlara ayrıldı, palet-PNG ile sıkıştırıldı.
 
 | Dosya | Nerede kullanılıyor | Boyut |
 |---|---|---|
-| `mark-arc-left.png` `mark-stroke.png` `mark-sun.png` `mark-arc-right.png` | Hero'daki **fırça çizilme animasyonu** — logo dört darbeye ayrıldı, her biri sırayla çiziliyor | 43 KB |
-| `logo-mark.png` | Header, oyun kartı, footer, arka plan filigranı | 53 KB |
-| `wordmark.png` | Hero ve header yazısı (beyaz, kırmızı Q çizgisi korundu) | 6 KB |
-| `logo-lockup.png` | Basın kullanımı için tam kilit — sayfada kullanılmıyor | 96 KB |
-| `og-image.png` | WhatsApp/X/Facebook link önizlemesi (1200×630) | 111 KB |
-| `icon-512.png` `apple-touch-icon.png` `favicon-32.png` | Tarayıcı sekmesi ve telefon ana ekranı | — |
+| `art-ink.png` | Hero — kemik beyazı panel + atlı savaşçı (tek mürekkep bloğu) | 73 KB |
+| `art-banner.png` | Hero — kızıl sancak, soldan sağa açılan katman | 24 KB |
+| `art-seal.png` | Hero — mühür, damga animasyonuyla basılır | 5 KB |
+| `wordmark2.png` | Hero ve header yazısı | 10 KB |
+| `seal.png` | Oyun kartı ve footer'daki mühür | 41 KB |
+| `logo-full.png` | Basın kullanımı için tam logo | 66 KB |
+| `og-image.png` | WhatsApp/X/Facebook link önizlemesi (1200×630) | 76 KB |
+| `icon-512.png` `apple-touch-icon.png` `favicon-32.png` | Tarayıcı sekmesi ve telefon ana ekranı (mürekkep bloğu kırpımı) | — |
 
-Sayfanın yüklediği toplam görsel: **~59 KB**.
+**Marka renkleri:** kızıl `#A80B0A` · arayüz kızılı `#C0141A` · kemik `#D2CDC6` · zemin `#09090B`
 
-**Marka renkleri:** kırmızı `#F41420` · mavi `#2A63FF` · zemin `#08080A`
+**Açılış animasyonu:** mürekkep bloğu yukarıdan aşağı → sancak soldan sağa →
+mühür basılır → yazı yükselir. Toplam ~2.1 sn.
+
 
 ## Siteyi güncelleme
 
