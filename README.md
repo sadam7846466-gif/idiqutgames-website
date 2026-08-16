@@ -67,7 +67,8 @@ Orijinal logolardan (`~/Downloads/şirket için/logo/`) üretildi. Siyah zemin
 
 | Dosya | Nerede kullanılıyor | Boyut |
 |---|---|---|
-| `logo-mark.png` | Hero, header, oyun kartı, footer (şeffaf) | 53 KB |
+| `mark-arc-left.png` `mark-stroke.png` `mark-sun.png` `mark-arc-right.png` | Hero'daki **fırça çizilme animasyonu** — logo dört darbeye ayrıldı, her biri sırayla çiziliyor | 43 KB |
+| `logo-mark.png` | Header, oyun kartı, footer, arka plan filigranı | 53 KB |
 | `wordmark.png` | Hero ve header yazısı (beyaz, kırmızı Q çizgisi korundu) | 6 KB |
 | `logo-lockup.png` | Basın kullanımı için tam kilit — sayfada kullanılmıyor | 96 KB |
 | `og-image.png` | WhatsApp/X/Facebook link önizlemesi (1200×630) | 111 KB |
