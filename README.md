@@ -71,8 +71,7 @@ Push'tan ~1 dakika sonra canlıda görünür.
 
 ## Yayına girince yapılacaklar
 
-- [ ] `hello@idiqutgames.com` e-posta adresini oluştur (GoDaddy → Email Forwarding
-      en kolayı, ücretsiz). Site bu adresi gösteriyor, yoksa kimse ulaşamaz.
+- [x] İletişim adresi: `idiqutgames@gmail.com` (sitede yayında)
 - [ ] `idiqutgames.com/app-ads.txt` açılıyor mu tarayıcıdan kontrol et
 - [ ] AdMob → Apps → App settings → **Developer website** alanına `idiqutgames.com` yaz
 - [ ] Google Search Console'a siteyi ekle
