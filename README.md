@@ -1,50 +1,80 @@
 # idiqutgames.com
 
 İdiqut Games kurumsal web sitesi. Tek sayfa, statik, hiçbir dış bağımlılığı yok
-(font/script/CDN çağrısı yapmaz — bu yüzden çok hızlı açılır ve GDPR sorunu çıkarmaz).
+(font/script/CDN çağrısı yapmaz — çok hızlı açılır, çerez kullanmaz).
+
+**Hosting:** GitHub Pages · **Repo:** `sadam7846466-gif/idiqutgames-website` · **Branch:** `main`
+
+---
+
+## ⚠️ YAPILACAK: GoDaddy DNS ayarı
+
+Site yayında ama domain hâlâ GoDaddy'nin park sayfasını gösteriyor.
+Bunu düzeltmek için GoDaddy'de DNS kayıtlarını değiştirmen lazım — 3 dakikalık iş.
+
+### Adımlar
+
+1. https://dcc.godaddy.com/control/portfolio adresine gir
+2. `idiqutgames.com` yanındaki **DNS** / **Manage DNS** butonuna bas
+3. Listede duran hazır kayıtları **sil**:
+   - `A` tipinde, adı `@` olan kayıt (park IP'sine gidiyor)
+   - `CNAME` tipinde, adı `www` olan kayıt
+4. Aşağıdaki **5 kaydı** ekle:
+
+| Type  | Name | Value                        | TTL      |
+|-------|------|------------------------------|----------|
+| A     | @    | `185.199.108.153`            | 1 Hour   |
+| A     | @    | `185.199.109.153`            | 1 Hour   |
+| A     | @    | `185.199.110.153`            | 1 Hour   |
+| A     | @    | `185.199.111.153`            | 1 Hour   |
+| CNAME | www  | `sadam7846466-gif.github.io` | 1 Hour   |
+
+> Evet, 4 tane `A` kaydı ve hepsinin adı `@`. Doğru — GitHub'ın 4 sunucusu var.
+> CNAME değerinin sonundaki nokta önemli değil, GoDaddy kendi ekler.
+
+5. **Save** / **Kaydet**
+
+### Sonra
+
+DNS'in yayılması genelde 10 dakika – 1 saat sürer (bazen 24 saate kadar).
+Sonrasında `https://idiqutgames.com` açılacak. SSL sertifikası GitHub tarafından
+otomatik ve ücretsiz kurulur (birkaç dakika daha sürebilir).
+
+Kontrol etmek için terminalde:
+```bash
+dig +short idiqutgames.com A
+```
+`185.199.10x.153` adreslerini görüyorsan tamamdır.
+
+---
 
 ## Dosyalar
 
 | Dosya | Ne işe yarar |
 |---|---|
 | `index.html` | Sitenin tamamı (HTML + CSS tek dosyada) |
-| `app-ads.txt` | **AdMob için zorunlu.** Google bu dosyayı `idiqutgames.com/app-ads.txt` adresinde arar |
+| `CNAME` | GitHub Pages'e özel domain'i söyler — **silme** |
+| `app-ads.txt` | **AdMob için zorunlu.** Google bunu `idiqutgames.com/app-ads.txt` adresinde arar |
 | `robots.txt` | Arama motorlarına izin verir |
-| `sitemap.xml` | Google'ın siteyi indexlemesi için |
+| `sitemap.xml` | Google indexleme için |
 
-## Yayınlama — Netlify (en kolay yol)
+## Siteyi güncelleme
 
-1. https://app.netlify.com/drop adresine git
-2. `idiqutgames-website` klasörünü sayfaya sürükle-bırak → site anında yayında
-   (`rastgele-isim.netlify.app` gibi geçici bir adres verir)
-3. Ücretsiz hesap aç (siteyi kalıcı hale getirmek için)
-4. **Site configuration → Domain management → Add a domain** → `idiqutgames.com` yaz
-5. Netlify sana DNS kayıtlarını gösterir. Domain'i aldığın firmanın (GoDaddy,
-   Namecheap, Turhost vb.) DNS paneline gir ve şunları ekle:
+`index.html`'i düzenle, sonra:
 
-   ```
-   A      @      75.2.60.5
-   CNAME  www    <senin-siten>.netlify.app
-   ```
+```bash
+cd ~/idiqutgames-website
+git add -A && git commit -m "site güncellendi" && git push
+```
 
-   (Netlify ekranında yazan değerleri kullan — yukarıdakiler örnek.)
-6. DNS'in yayılması 10 dakika – 24 saat sürer. SSL sertifikası (https) otomatik gelir.
+Push'tan ~1 dakika sonra canlıda görünür.
 
-### Güncelleme
-`index.html`'i düzenle → Netlify panelinde **Deploys** sekmesine klasörü tekrar
-sürükle-bırak. Bitti.
+## Yayına girince yapılacaklar
 
-## Alternatif — Cloudflare Pages
-Ücretsiz ve daha hızlı, ama domain'in nameserver'larını Cloudflare'e taşıman
-gerekir. Netlify ile başlamak daha kolay.
-
-## Yayına alınca yapılacaklar
-
-- [ ] `hello@idiqutgames.com` e-posta adresini oluştur (domain sağlayıcın üzerinden
-      yönlendirme/forwarding en kolayı). Site bu adresi gösteriyor.
-- [ ] `idiqutgames.com/app-ads.txt` adresinin açıldığını tarayıcıdan kontrol et
+- [ ] `hello@idiqutgames.com` e-posta adresini oluştur (GoDaddy → Email Forwarding
+      en kolayı, ücretsiz). Site bu adresi gösteriyor, yoksa kimse ulaşamaz.
+- [ ] `idiqutgames.com/app-ads.txt` açılıyor mu tarayıcıdan kontrol et
 - [ ] AdMob → Apps → App settings → **Developer website** alanına `idiqutgames.com` yaz
-      (app-ads.txt'in doğrulanması için gerekli)
 - [ ] Google Search Console'a siteyi ekle
 
 ## Oyun çıkınca eklenecekler
