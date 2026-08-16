@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İdiqut Games — Independent Mobile Game Studio</title>
+<meta name="description" content="İdiqut Games is an independent studio building small, sharp mobile games. Our first title is in development.">
+<link rel="canonical" href="https://idiqutgames.com/">
+<meta name="theme-color" content="#0A0A0C">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://idiqutgames.com/">
+<meta property="og:site_name" content="İdiqut Games">
+<meta property="og:title" content="İdiqut Games — Independent Mobile Game Studio">
+<meta property="og:description" content="An independent studio building small, sharp mobile games. Our first title is in development.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="İdiqut Games">
+<meta name="twitter:description" content="An independent studio building small, sharp mobile games.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0C'/%3E%3Ccircle cx='32' cy='13' r='4' fill='%23E0B24C'/%3E%3Crect x='28' y='22' width='8' height='30' rx='2' fill='%23E0B24C'/%3E%3C/svg%3E">
+
+<style>
+  :root{
+    --bg:#0A0A0C;
+    --fg:#EDEDF0;
+    --muted:#8B8B97;
+    --faint:#5A5A66;
+    --accent:#E0B24C;
+    --line:rgba(237,237,240,.10);
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--font);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+  }
+
+  /* soft light behind the wordmark */
+  body::before{
+    content:"";
+    position:fixed;
+    top:-30vh;
+    left:50%;
+    width:min(120vw,1100px);
+    height:min(120vw,1100px);
+    transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(224,178,76,.10) 0%,rgba(224,178,76,.035) 38%,transparent 68%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .page{
+    position:relative;
+    z-index:1;
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(32px,7vw,80px) clamp(24px,6vw,40px);
+  }
+
+  main{
+    width:100%;
+    max-width:560px;
+  }
+
+  /* ---- wordmark ---- */
+  .mark{margin-bottom:clamp(36px,7vw,52px)}
+
+  .mark h1{
+    font-size:clamp(2.4rem,10vw,3.75rem);
+    font-weight:600;
+    letter-spacing:.16em;
+    line-height:1.05;
+    text-indent:.16em;
+    text-align:center;
+  }
+
+  .mark .sub{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:18px;
+  }
+
+  .mark .sub::before,
+  .mark .sub::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .mark .sub span{
+    font-size:.7rem;
+    font-weight:500;
+    letter-spacing:.42em;
+    text-indent:.42em;
+    color:var(--accent);
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+
+  /* ---- copy ---- */
+  .lede{
+    font-size:clamp(1.06rem,3.4vw,1.22rem);
+    line-height:1.5;
+    letter-spacing:-.01em;
+    text-align:center;
+    margin-bottom:22px;
+  }
+
+  .body{
+    color:var(--muted);
+    font-size:1rem;
+    text-align:center;
+    max-width:46ch;
+    margin:0 auto;
+  }
+
+  /* ---- status ---- */
+  .status{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:clamp(38px,7vw,52px) 0;
+    padding:14px 20px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    font-size:.85rem;
+    letter-spacing:.02em;
+    color:var(--muted);
+    text-align:center;
+  }
+
+  .status b{
+    color:var(--fg);
+    font-weight:500;
+  }
+
+  .dot{
+    flex:none;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 0 rgba(224,178,76,.55);
+    animation:pulse 2.6s ease-out infinite;
+  }
+
+  @keyframes pulse{
+    0%   {box-shadow:0 0 0 0 rgba(224,178,76,.5)}
+    70%  {box-shadow:0 0 0 9px rgba(224,178,76,0)}
+    100% {box-shadow:0 0 0 0 rgba(224,178,76,0)}
+  }
+
+  /* ---- contact ---- */
+  .contact{text-align:center}
+
+  .contact .label{
+    display:block;
+    font-size:.68rem;
+    letter-spacing:.24em;
+    text-indent:.24em;
+    text-transform:uppercase;
+    color:var(--faint);
+    margin-bottom:12px;
+  }
+
+  .contact a{
+    color:var(--fg);
+    text-decoration:none;
+    font-size:clamp(1rem,3.6vw,1.1rem);
+    letter-spacing:-.005em;
+    border-bottom:1px solid rgba(224,178,76,.4);
+    padding-bottom:3px;
+    transition:color .18s ease,border-color .18s ease;
+    word-break:break-word;
+  }
+
+  .contact a:hover,
+  .contact a:focus-visible{
+    color:var(--accent);
+    border-color:var(--accent);
+  }
+
+  /* ---- footer ---- */
+  footer{
+    position:relative;
+    z-index:1;
+    padding:28px clamp(24px,6vw,40px) 32px;
+    text-align:center;
+    font-size:.75rem;
+    color:var(--faint);
+    letter-spacing:.02em;
+  }
+
+  /* ---- entrance ---- */
+  .fade{
+    opacity:0;
+    transform:translateY(14px);
+    animation:rise .85s cubic-bezier(.22,.7,.3,1) forwards;
+  }
+
+  .fade:nth-child(1){animation-delay:.05s}
+  .fade:nth-child(2){animation-delay:.18s}
+  .fade:nth-child(3){animation-delay:.30s}
+  .fade:nth-child(4){animation-delay:.42s}
+  .fade:nth-child(5){animation-delay:.54s}
+
+  @keyframes rise{
+    to{opacity:1;transform:none}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .fade{animation:none;opacity:1;transform:none}
+    .dot{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <main>
+
+    <div class="mark fade">
+      <h1>İDİQUT</h1>
+      <div class="sub"><span>Games</span></div>
+    </div>
+
+    <p class="lede fade">We build small, sharp games for mobile.</p>
+
+    <p class="body fade">
+      İdiqut Games is an independent studio. We make games that are easy to
+      pick up and hard to put down — no clutter, no noise, just play.
+    </p>
+
+    <div class="status fade">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>First title</b> — in development</span>
+    </div>
+
+    <div class="contact fade">
+      <span class="label">Contact</span>
+      <a href="mailto:hello@idiqutgames.com">hello@idiqutgames.com</a>
+    </div>
+
+  </main>
+</div>
+
+<footer>© 2026 İdiqut Games</footer>
+
+</body>
+</html>
