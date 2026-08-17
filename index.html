@@ -42,20 +42,16 @@
 
 <style>
   :root{
-    --paper:#F5F3EE;        /* govde — logodaki kagit tonu */
-    --paper-2:#EBE7DF;
-    --ink:#15120F;          /* ana metin */
-    --muted:#6C665E;
-    --faint:#9B948B;
-    --line:rgba(21,18,15,.13);
-    --line-soft:rgba(21,18,15,.075);
-    --red:#A80B0A;          /* logodan olculen marka kizili */
-    --red-hi:#C0141A;
-    --stage:#09090B;        /* hero + footer sahnesi */
+    --paper:#F6F4F0;
+    --ink:#14110E;
+    --muted:#6E675F;
+    --faint:#A29A90;
+    --red:#A80B0A;
+    --stage:#09090B;
     --bone:#D2CDC6;
-    --head:64px;
+    --head:66px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
-    --wrap:1160px;
+    --wrap:1120px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -64,74 +60,64 @@
 
   body{
     background:var(--paper);color:var(--ink);
-    font-family:var(--font);font-size:16px;line-height:1.6;
+    font-family:var(--font);font-size:17px;line-height:1.62;
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     overflow-x:hidden;
   }
   img{max-width:100%;height:auto;display:block}
   a{color:inherit}
-  :focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
+  :focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:2px}
 
-  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(22px,5vw,52px)}
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(24px,6vw,56px)}
   .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:100}
   .skip:focus{left:0}
 
-  /* ═══ HEADER — hero uzerinde seffaf/beyaz yazi, sonra kagit/koyu yazi ═══ */
+  /* ═══ HEADER ═══ */
   header{
     position:fixed;inset:0 0 auto 0;height:var(--head);z-index:50;
-    display:flex;align-items:center;
-    background:transparent;border-bottom:1px solid transparent;
-    transition:background .35s ease,border-color .35s ease;
+    display:flex;align-items:center;background:transparent;
+    transition:background .4s ease;
   }
   header.solid{
-    background:rgba(245,243,238,.86);
-    -webkit-backdrop-filter:saturate(150%) blur(14px);
-            backdrop-filter:saturate(150%) blur(14px);
-    border-bottom-color:var(--line-soft);
+    background:rgba(246,244,240,.9);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
   }
-  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .brand{position:relative;display:block;flex:none;text-decoration:none;width:clamp(100px,15vw,128px)}
-  .brand img{width:100%;transition:opacity .35s ease}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px}
+  .brand{position:relative;display:block;flex:none;text-decoration:none;width:clamp(96px,14vw,120px)}
+  .brand img{width:100%;transition:opacity .4s ease}
   .brand .dark{position:absolute;inset:0;opacity:0}
   header.solid .brand .light{opacity:0}
   header.solid .brand .dark{opacity:1}
 
-  nav{display:flex;align-items:center;gap:clamp(17px,3.3vw,34px)}
+  nav{display:flex;align-items:center;gap:clamp(18px,3.4vw,36px)}
   nav a{
-    text-decoration:none;font-size:.77rem;font-weight:600;
-    letter-spacing:.18em;text-transform:uppercase;
-    color:rgba(210,205,198,.72);transition:color .25s ease;white-space:nowrap;
+    text-decoration:none;font-size:.83rem;font-weight:500;letter-spacing:.01em;
+    color:rgba(210,205,198,.75);transition:color .25s ease;white-space:nowrap;
   }
   nav a:hover{color:#fff}
   header.solid nav a{color:var(--muted)}
   header.solid nav a:hover{color:var(--ink)}
 
-  /* ═══ HERO — siyah sahne ═══ */
+  /* ═══ HERO ═══ */
   .hero{
     position:relative;background:var(--stage);color:var(--bone);
-    min-height:100svh;
+    min-height:96svh;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;
-    padding:calc(var(--head) + 30px) clamp(22px,5vw,52px) 96px;
+    padding:calc(var(--head) + 40px) clamp(24px,6vw,56px) clamp(72px,10vw,110px);
     overflow:hidden;
   }
-  .hero .glow{position:absolute;pointer-events:none;z-index:0;border-radius:50%}
-  .hero .glow.r{
-    top:6%;left:50%;transform:translateX(-4%);
-    width:min(96vw,760px);aspect-ratio:1;
-    background:radial-gradient(circle,rgba(168,11,10,.19) 0%,rgba(168,11,10,.05) 40%,transparent 68%);
-  }
-  .hero .glow.w{
-    top:-4%;left:50%;transform:translateX(-58%);
-    width:min(80vw,600px);aspect-ratio:1;
-    background:radial-gradient(circle,rgba(210,205,198,.07) 0%,rgba(210,205,198,.02) 42%,transparent 70%);
+  .hero .glow{
+    position:absolute;top:4%;left:50%;transform:translateX(-6%);
+    width:min(92vw,720px);aspect-ratio:1;border-radius:50%;
+    pointer-events:none;z-index:0;
+    background:radial-gradient(circle,rgba(168,11,10,.15) 0%,rgba(168,11,10,.04) 42%,transparent 70%);
   }
   .hero > *:not(.glow){position:relative;z-index:1}
 
-  .art{position:relative;width:clamp(242px,41vw,404px);aspect-ratio:762/780;margin-bottom:clamp(24px,3.6vw,34px)}
+  .art{position:relative;width:clamp(238px,39vw,392px);aspect-ratio:762/780;margin-bottom:clamp(26px,3.8vw,38px)}
   .art .al{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 
-  /* Gizli baslangic CSS'te — JS beklenmez, parlama olmaz. */
   @supports ((-webkit-mask-image:linear-gradient(#000,#000)) or (mask-image:linear-gradient(#000,#000))){
     .art .ink{
       -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 49%,transparent 100%);
@@ -160,149 +146,128 @@
   .art.on .ban{animation:banRight .92s cubic-bezier(.28,.06,.2,1)  .64s forwards}
   .art.on .sea{animation:stamp    .48s cubic-bezier(.3,1.35,.5,1) 1.40s forwards}
 
-  .hero .word{width:clamp(232px,37vw,376px);margin-bottom:clamp(22px,3.2vw,30px)}
-  .hero p{font-size:clamp(1.02rem,2.4vw,1.24rem);line-height:1.5;letter-spacing:-.01em;color:#EDE9E3;max-width:34ch}
-  .hero .rule{width:56px;height:2px;margin:clamp(22px,3.4vw,30px) auto 0;background:linear-gradient(90deg,var(--red),var(--red-hi));border-radius:2px}
+  .hero .word{width:clamp(226px,35vw,362px);margin-bottom:clamp(24px,3.4vw,32px)}
+  .hero p{font-size:clamp(1.02rem,2.3vw,1.2rem);line-height:1.5;color:#E9E5DF;max-width:34ch}
 
-  .scroll{
-    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:1;
-    font-size:.61rem;letter-spacing:.3em;text-transform:uppercase;
-    color:rgba(210,205,198,.45);text-decoration:none;
-    display:flex;flex-direction:column;align-items:center;gap:9px;transition:color .2s ease;
-  }
-  .scroll:hover{color:var(--bone)}
-  .scroll::after{content:"";width:1px;height:26px;background:linear-gradient(180deg,rgba(210,205,198,.5),transparent);animation:drop 2.4s ease-in-out infinite}
-  @keyframes drop{0%,100%{opacity:.3;transform:scaleY(.62);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+  /* ═══ SECTIONS — ayrac yok, sadece bosluk ═══ */
+  section{padding:clamp(104px,15vw,196px) 0}
 
-  /* ═══ SECTIONS — kagit ═══ */
-  section{padding:clamp(86px,12vw,146px) 0;position:relative}
-  #studio{border-top:none}
-  #games{background:var(--paper-2)}
-
-  .label{
-    display:flex;align-items:center;gap:13px;
-    font-size:.67rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
-    color:var(--faint);margin-bottom:clamp(22px,3.4vw,32px);
-  }
-  .label::before{content:"";width:26px;height:1px;background:var(--red);flex:none}
-
-  h2{font-size:clamp(2rem,5.8vw,3.35rem);font-weight:700;line-height:1.06;letter-spacing:-.032em;max-width:17ch}
-
-  .head{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,34px);align-items:start}
-  @media (min-width:900px){
-    .head{grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:clamp(48px,7vw,104px)}
-    .head-r{padding-top:.55em}
+  .eyebrow{
+    font-size:.76rem;font-weight:500;letter-spacing:.02em;
+    color:var(--faint);margin-bottom:clamp(20px,2.6vw,26px);
   }
 
-  .prose{max-width:56ch;color:var(--muted);font-size:clamp(1rem,2vw,1.09rem);line-height:1.72}
-  .prose + .prose{margin-top:1.1em}
-  .prose em{color:var(--ink);font-style:normal;font-weight:600}
-
-  .grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));
-    gap:1px;margin-top:clamp(52px,7vw,78px);
-    background:var(--line-soft);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
-  }
-  .cell{background:var(--paper);padding:clamp(26px,3.6vw,36px);transition:background .25s ease}
-  .cell:hover{background:#FBFAF7}
-  .cell .n{font-size:.67rem;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:15px}
-  .cell h3{font-size:1.08rem;font-weight:700;letter-spacing:-.014em;margin-bottom:9px}
-  .cell p{color:var(--muted);font-size:.94rem;line-height:1.62}
-
-  /* ═══ OYUN KARTI (ustwo tarzi) ═══ */
-  .game{
-    margin-top:clamp(46px,6vw,70px);
-    display:grid;grid-template-columns:1fr;gap:clamp(28px,4.5vw,56px);align-items:center;
-  }
-  @media (min-width:900px){.game{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}}
-
-  .game .shot{
-    position:relative;border-radius:16px;overflow:hidden;
-    background:var(--paper);
-    box-shadow:0 1px 2px rgba(21,18,15,.06),0 18px 42px -14px rgba(21,18,15,.28);
-    transition:transform .5s cubic-bezier(.22,.7,.3,1),box-shadow .5s ease;
-  }
-  .game .shot:hover{transform:translateY(-5px);box-shadow:0 1px 2px rgba(21,18,15,.06),0 30px 60px -16px rgba(21,18,15,.34)}
-  .game .shot img{width:100%}
-  .game .cap{
-    margin-top:11px;font-size:.71rem;letter-spacing:.06em;color:var(--faint);
+  h2{
+    font-size:clamp(1.95rem,5vw,3.05rem);
+    font-weight:600;line-height:1.12;letter-spacing:-.026em;
+    max-width:19ch;
   }
 
-  .status{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--muted);border:1px solid var(--line);border-radius:100px;
-    padding:6px 14px 6px 11px;margin-bottom:19px;background:var(--paper);
+  .lede{
+    margin-top:clamp(26px,3.4vw,38px);
+    max-width:60ch;color:var(--muted);
+    font-size:clamp(1.04rem,2vw,1.14rem);line-height:1.72;
   }
-  .dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex:none;
-       box-shadow:0 0 0 0 rgba(168,11,10,.5);animation:pulse 2.6s ease-out infinite}
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(168,11,10,.45)}
-    70%{box-shadow:0 0 0 8px rgba(168,11,10,0)}
-    100%{box-shadow:0 0 0 0 rgba(168,11,10,0)}
-  }
-  .game h3{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-bottom:14px}
-  .game .meta p{color:var(--muted);max-width:46ch;line-height:1.7;font-size:clamp(1rem,2vw,1.06rem)}
-  .game .meta p + p{margin-top:.9em}
-  .specs{
-    display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;
-  }
-  .specs span{
-    font-size:.7rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
-    color:var(--muted);border:1px solid var(--line-soft);background:var(--paper);
-    border-radius:7px;padding:6px 11px;
-  }
+  .lede + .lede{margin-top:1.15em}
+  .lede em{color:var(--ink);font-style:normal;font-weight:500}
 
-  /* ═══ CONTACT ═══ */
+  /* ilkeler — kutu yok, sadece hava */
+  .pillars{
+    display:grid;grid-template-columns:1fr;
+    gap:clamp(36px,5vw,56px);
+    margin-top:clamp(64px,9vw,116px);
+  }
+  @media (min-width:820px){.pillars{grid-template-columns:repeat(3,1fr);gap:clamp(38px,5vw,64px)}}
+  .pillars h3{font-size:1.08rem;font-weight:600;letter-spacing:-.012em;margin-bottom:10px}
+  .pillars p{color:var(--muted);font-size:1rem;line-height:1.68;max-width:34ch}
+
+  /* ═══ OYUN ═══ */
+  .shot{
+    margin-top:clamp(46px,6vw,72px);
+    border-radius:6px;overflow:hidden;background:#E8E4DC;
+  }
+  .shot img{width:100%;transition:transform 1.1s cubic-bezier(.2,.7,.25,1)}
+  .shot:hover img{transform:scale(1.028)}
+
+  .cap{margin-top:12px;font-size:.78rem;color:var(--faint)}
+
+  .gtitle{
+    margin-top:clamp(38px,5vw,58px);
+    font-size:clamp(1.65rem,4.2vw,2.4rem);font-weight:600;
+    letter-spacing:-.028em;line-height:1.1;
+  }
+  .gstatus{
+    display:inline-flex;align-items:center;gap:9px;margin-top:14px;
+    font-size:.82rem;color:var(--muted);
+  }
+  .gstatus::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex:none}
+  .gbody{margin-top:22px;max-width:56ch;color:var(--muted);font-size:1.06rem;line-height:1.72}
+  .gbody + .gbody{margin-top:1.05em}
+  .gspecs{margin-top:26px;font-size:.83rem;color:var(--faint);letter-spacing:.01em}
+
+  /* ═══ BAGLANTI OKU ═══ */
+  .arrow{
+    display:inline-flex;align-items:baseline;gap:.5em;
+    text-decoration:none;font-weight:500;
+    color:var(--ink);
+  }
+  .arrow span.t{
+    background-image:linear-gradient(currentColor,currentColor);
+    background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;
+    padding-bottom:2px;transition:background-size .3s ease;
+  }
+  .arrow:hover span.t{background-size:0% 1px}
+  .arrow span.a{transition:transform .3s cubic-bezier(.2,.7,.3,1);display:inline-block}
+  .arrow:hover span.a{transform:translateX(5px)}
+
   .mail{
-    display:inline-block;margin-top:clamp(12px,2vw,18px);
-    font-size:clamp(1.24rem,4.4vw,2.1rem);font-weight:600;letter-spacing:-.03em;
-    text-decoration:none;color:var(--ink);padding-bottom:6px;
-    background-image:linear-gradient(90deg,var(--red),var(--red-hi));
-    background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;
-    transition:opacity .18s ease;word-break:break-word;
+    display:inline-flex;align-items:baseline;gap:.5em;
+    margin-top:clamp(26px,3.4vw,36px);
+    font-size:clamp(1.3rem,4.2vw,2.05rem);font-weight:500;letter-spacing:-.028em;
+    text-decoration:none;color:var(--ink);
   }
-  .mail:hover{opacity:.66}
+  .mail span.t{
+    background-image:linear-gradient(currentColor,currentColor);
+    background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;
+    padding-bottom:4px;transition:background-size .35s ease;
+  }
+  .mail:hover span.t{background-size:0% 1px}
+  .mail span.a{transition:transform .3s cubic-bezier(.2,.7,.3,1);display:inline-block}
+  .mail:hover span.a{transform:translateX(6px)}
 
-  /* ═══ FOOTER — siyah sahne ═══ */
-  footer{background:var(--stage);color:var(--bone);padding:clamp(52px,7vw,72px) 0 clamp(44px,6vw,58px)}
-  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-  footer .fbrand{display:flex;align-items:center;gap:15px}
-  footer .fbrand .seal{width:24px;opacity:.6}
-  footer .fbrand .wm{width:104px;opacity:.85}
-  footer .copy{font-size:.78rem;color:rgba(210,205,198,.44)}
-  footer nav a{font-size:.7rem;color:rgba(210,205,198,.6)}
+  /* ═══ FOOTER ═══ */
+  footer{background:var(--stage);color:var(--bone);padding:clamp(60px,8vw,88px) 0 clamp(48px,6vw,64px)}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+  footer .fbrand{display:flex;align-items:center;gap:16px}
+  footer .fbrand .seal{width:22px;opacity:.55}
+  footer .fbrand .wm{width:100px;opacity:.8}
+  footer .copy{font-size:.8rem;color:rgba(210,205,198,.4)}
+  footer nav a{font-size:.8rem;color:rgba(210,205,198,.55)}
   footer nav a:hover{color:var(--bone)}
 
   /* ═══ REVEAL ═══ */
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.22,.7,.3,1),transform .85s cubic-bezier(.22,.7,.3,1)}
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.22,.7,.3,1),transform .9s cubic-bezier(.22,.7,.3,1)}
   .rv.in{opacity:1;transform:none}
-  .rv.d1{transition-delay:.09s}
-  .rv.d2{transition-delay:.18s}
-  .rv.d3{transition-delay:.27s}
+  .rv.d1{transition-delay:.1s}
+  .rv.d2{transition-delay:.2s}
+  .rv.d3{transition-delay:.3s}
   .rv.hd1{transition-delay:1.60s}
   .rv.hd2{transition-delay:1.80s}
-  .rv.hd3{transition-delay:1.94s}
   .hero.no-cine .rv.hd1{transition-delay:.10s}
   .hero.no-cine .rv.hd2{transition-delay:.20s}
-  .hero.no-cine .rv.hd3{transition-delay:.30s}
 
-  /* ═══ KAGIT DOKUSU ═══ */
+  /* kagit dokusu — logonun murekkep diliyle ayni, neredeyse gorunmez */
   body::after{
-    content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.032;
+    content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.022;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size:200px 200px;mix-blend-mode:multiply;
   }
 
   @media (prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
-    .dot,.scroll::after{animation:none}
     .art .ink,.art .ban{-webkit-mask-image:none!important;mask-image:none!important}
     .art .sea{opacity:1!important;transform:none!important}
-    .game .shot:hover{transform:none}
-  }
-  @media (max-width:560px){
-    nav a{font-size:.68rem;letter-spacing:.1em}
+    .shot:hover img{transform:none}
   }
 </style>
 
@@ -332,10 +297,8 @@
 
 <main id="main">
 
-  <!-- ═══ HERO — siyah sahne ═══ -->
   <div class="hero" id="top">
-    <span class="glow w"></span>
-    <span class="glow r"></span>
+    <span class="glow"></span>
 
     <div class="art" id="art" role="img"
          aria-label="İdiqut Games emblem: a lone standard-bearer on horseback beneath a crimson banner">
@@ -346,46 +309,35 @@
 
     <img class="word rv hd1" src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169">
     <p class="rv hd2">We build small, sharp games for mobile.</p>
-    <div class="rule rv hd3"></div>
-
-    <a class="scroll" href="#studio" aria-label="Scroll to studio section">Scroll</a>
   </div>
 
   <!-- ═══ STUDIO ═══ -->
   <section id="studio">
     <div class="wrap">
-      <div class="head">
-        <div class="head-l">
-          <p class="label rv">01 — Studio</p>
-          <h2 class="rv">An independent studio, building for the phone in your hand.</h2>
-        </div>
-        <div class="head-r">
-          <p class="prose rv d1">
-            İdiqut Games makes games that are easy to pick up and hard to put down.
-            No clutter, no noise — a clear idea, tuned until it feels right, and
-            nothing else in the way.
-          </p>
-          <p class="prose rv d2">
-            The name comes from <em>İdiqut</em>, the title carried by the rulers of the
-            Uyghur Kingdom of Qocho — roughly <em>sacred fortune</em>. The mark keeps
-            that origin: ink on paper, a lone standard-bearer, and a banner still flying.
-          </p>
-        </div>
-      </div>
+      <p class="eyebrow rv">Studio</p>
+      <h2 class="rv">An independent studio, building for the phone in your hand.</h2>
 
-      <div class="grid">
-        <div class="cell rv">
-          <p class="n">01</p>
+      <p class="lede rv d1">
+        İdiqut Games makes games that are easy to pick up and hard to put down.
+        No clutter, no noise — a clear idea, tuned until it feels right, and
+        nothing else in the way.
+      </p>
+      <p class="lede rv d2">
+        The name comes from <em>İdiqut</em>, the title carried by the rulers of the
+        Uyghur Kingdom of Qocho — roughly <em>sacred fortune</em>. The mark keeps
+        that origin: ink on paper, a lone standard-bearer, and a banner still flying.
+      </p>
+
+      <div class="pillars">
+        <div class="rv">
           <h3>Small by design</h3>
           <p>We ship focused games, not feature lists. One idea, done properly, beats ten half-finished ones.</p>
         </div>
-        <div class="cell rv d1">
-          <p class="n">02</p>
+        <div class="rv d1">
           <h3>Feel comes first</h3>
           <p>Controls, timing and feedback get tuned before anything else. If it doesn't feel good in the hand, it isn't finished.</p>
         </div>
-        <div class="cell rv d2">
-          <p class="n">03</p>
+        <div class="rv d2">
           <h3>Runs anywhere</h3>
           <p>Built to be light and fast on the phone you already own — not just on this year's flagship.</p>
         </div>
@@ -396,64 +348,40 @@
   <!-- ═══ GAMES ═══ -->
   <section id="games">
     <div class="wrap">
-      <div class="head">
-        <div class="head-l">
-          <p class="label rv">02 — Games</p>
-          <h2 class="rv">Our first game is being built right now.</h2>
-        </div>
-        <div class="head-r">
-          <p class="prose rv d1">
-            No release date yet. When it's ready it lands here first, then on
-            Google Play and the App Store.
-          </p>
-        </div>
-      </div>
+      <p class="eyebrow rv">Games</p>
+      <h2 class="rv">Our first game is being built right now.</h2>
 
-      <div class="game">
-        <div class="rv d1">
-          <div class="shot">
-            <img src="/assets/game-hamster.jpg" alt="Hamster Maze — a hamster in a lantern-lit stone maze, with cheese to collect and an exit gate"
-                 width="1100" height="1100" loading="lazy">
-          </div>
-          <p class="cap">Work in progress — art and layout will change before release.</p>
-        </div>
-
-        <div class="meta rv d2">
-          <span class="status"><span class="dot" aria-hidden="true"></span>In development</span>
-          <h3>Hamster Maze</h3>
-          <p>
-            You're a hamster in a maze that was built to stop you. Grab the cheese,
-            find the gate, and keep moving — something is always closing in behind you.
-          </p>
-          <p>
-            Death isn't a punishment here, it's rhythm. You're back in half a second,
-            no menus, no waiting, straight into the next run.
-          </p>
-          <div class="specs">
-            <span>Android first</span>
-            <span>Portrait</span>
-            <span>Unity</span>
-          </div>
-        </div>
+      <div class="shot rv d1">
+        <img src="/assets/game-hamster.jpg"
+             alt="Hamster Maze — a hamster in a lantern-lit stone maze, with cheese to collect and an exit gate"
+             width="1100" height="1100" loading="lazy">
       </div>
+      <p class="cap rv d1">Work in progress — art and layout will change before release.</p>
+
+      <h3 class="gtitle rv d1">Hamster Maze</h3>
+      <p class="gstatus rv d1">In development</p>
+
+      <p class="gbody rv d2">
+        You're a hamster in a maze that was built to stop you. Grab the cheese,
+        find the gate, and keep moving — something is always closing in behind you.
+      </p>
+      <p class="gbody rv d2">
+        Death isn't a punishment here, it's rhythm. You're back in half a second,
+        no menus, no waiting, straight into the next run.
+      </p>
+      <p class="gspecs rv d3">Android first · Portrait · Unity</p>
     </div>
   </section>
 
   <!-- ═══ CONTACT ═══ -->
   <section id="contact">
     <div class="wrap">
-      <div class="head">
-        <div class="head-l">
-          <p class="label rv">03 — Contact</p>
-          <h2 class="rv">Press, partnerships, or just saying hello.</h2>
-        </div>
-        <div class="head-r">
-          <p class="prose rv d1">
-            We read everything that comes in and reply to what we can.
-          </p>
-          <a class="mail rv d2" href="mailto:idiqutgames@gmail.com">idiqutgames@gmail.com</a>
-        </div>
-      </div>
+      <p class="eyebrow rv">Contact</p>
+      <h2 class="rv">Press, partnerships, or just saying hello.</h2>
+      <p class="lede rv d1">We read everything that comes in and reply to what we can.</p>
+      <a class="mail rv d2" href="mailto:idiqutgames@gmail.com">
+        <span class="t">idiqutgames@gmail.com</span><span class="a" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 
@@ -465,7 +393,7 @@
       <img class="seal" src="/assets/seal.png" alt="" width="155" height="220" loading="lazy">
       <img class="wm" src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169" loading="lazy">
     </div>
-    <p class="copy">© 2026 İdiqut Games. All rights reserved.</p>
+    <p class="copy">© 2026 İdiqut Games</p>
     <nav aria-label="Footer">
       <a href="#studio">Studio</a>
       <a href="#games">Games</a>
@@ -478,7 +406,6 @@
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ── acilis animasyonu ──
   var art  = document.getElementById('art');
   var hero = document.querySelector('.hero');
   var canMask = window.CSS && CSS.supports &&
@@ -493,20 +420,16 @@
     hero.classList.add('no-cine');
   }
 
-  // ── header: hero'yu gecince kagit moduna gecer ──
   var hdr = document.getElementById('hdr');
-  var glowR = document.querySelector('.hero .glow.r');
-  var glowW = document.querySelector('.hero .glow.w');
+  var glow = document.querySelector('.hero .glow');
   var ticking = false;
 
   function frame(){
     var y = window.scrollY || 0;
-    var trigger = (hero ? hero.offsetHeight : 600) - 72;
-    hdr.classList.toggle('solid', y > trigger);
-
-    if (!reduce && y < (hero ? hero.offsetHeight : 900)) {
-      if (glowR) glowR.style.transform = 'translateX(-4%) translateY('  + (y * .15) + 'px)';
-      if (glowW) glowW.style.transform = 'translateX(-58%) translateY(' + (y * .09) + 'px)';
+    var h = hero ? hero.offsetHeight : 600;
+    hdr.classList.toggle('solid', y > h - 76);
+    if (!reduce && glow && y < h) {
+      glow.style.transform = 'translateX(-6%) translateY(' + (y * .14) + 'px)';
     }
     ticking = false;
   }
@@ -515,7 +438,6 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll, {passive:true});
 
-  // ── gorunur olunca yumusak giris ──
   var items = document.querySelectorAll('.rv');
   if (!window.IntersectionObserver || reduce) {
     Array.prototype.forEach.call(items, function(el){ el.classList.add('in'); });
@@ -524,7 +446,7 @@
       entries.forEach(function(e){
         if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
       });
-    }, {rootMargin:'0px 0px -8% 0px', threshold:.06});
+    }, {rootMargin:'0px 0px -9% 0px', threshold:.05});
     Array.prototype.forEach.call(items, function(el){ io.observe(el); });
   }
 })();
