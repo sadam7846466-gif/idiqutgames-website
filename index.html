@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>İdiqut Games — Hamster Maze, in development</title>
-<meta name="description" content="İdiqut Games is an independent studio building small, sharp games for mobile. Hamster Maze is in development.">
+<title>İdiqut Games — Two mobile games in development</title>
+<meta name="description" content="İdiqut Games is a small independent studio making mobile games. Two titles are in development.">
 <link rel="canonical" href="https://idiqutgames.com/">
 <meta name="theme-color" content="#FAF3ED">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://idiqutgames.com/">
 <meta property="og:site_name" content="İdiqut Games">
-<meta property="og:title" content="İdiqut Games — Hamster Maze, in development">
-<meta property="og:description" content="An independent studio building small, sharp games for mobile. Hamster Maze is in development.">
+<meta property="og:title" content="İdiqut Games — Two mobile games in development">
+<meta property="og:description" content="A small independent studio making mobile games. Two titles are in development.">
 <meta property="og:image" content="https://idiqutgames.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="İdiqut Games — Hamster Maze">
-<meta name="twitter:description" content="An independent studio building small, sharp games for mobile.">
+<meta name="twitter:title" content="İdiqut Games">
+<meta name="twitter:description" content="A small independent studio making mobile games.">
 <meta name="twitter:image" content="https://idiqutgames.com/assets/og-image.png">
 
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
@@ -34,19 +34,18 @@
   "url":"https://idiqutgames.com/",
   "logo":"https://idiqutgames.com/assets/icon-512.png",
   "email":"idiqutgames@gmail.com",
-  "description":"Independent game studio building small, sharp games for mobile."
+  "description":"Small independent studio making mobile games."
 }
 </script>
 
 <style>
   :root{
     --bg:#FAF3ED;
-    --bg-warm:#F3EBE3;
+    --bg-warm:#F2E9E1;
     --ink:#17161C;
     --muted:#6F6A66;
     --faint:#A79F96;
     --red:#A01810;
-    --blue:#183048;
     --head:70px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
     --wrap:1080px;
@@ -71,7 +70,7 @@
   .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:100}
   .skip:focus{left:0}
 
-  /* ═══ HEADER — logonun asil yeri ═══ */
+  /* ═══ HEADER ═══ */
   header{
     position:fixed;inset:0 0 auto 0;height:var(--head);z-index:50;
     display:flex;align-items:center;
@@ -83,70 +82,66 @@
   }
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px}
   .brand{display:block;flex:none;text-decoration:none;width:clamp(92px,12vw,112px)}
-  .brand img{width:100%}
 
   nav{display:flex;align-items:center;gap:clamp(16px,3vw,32px)}
-  nav a{
-    text-decoration:none;font-size:.84rem;font-weight:500;
-    color:var(--muted);transition:color .22s ease;white-space:nowrap;
-  }
+  nav a{text-decoration:none;font-size:.84rem;font-weight:500;color:var(--muted);transition:color .22s ease;white-space:nowrap}
   nav a:hover{color:var(--ink)}
 
-  /* ═══ HERO — oyun karsilar ═══ */
-  .hero{padding:calc(var(--head) + clamp(48px,8vw,96px)) 0 clamp(76px,10vw,120px)}
-
+  /* ═══ HERO ═══ */
+  .hero{padding:calc(var(--head) + clamp(52px,9vw,104px)) 0 clamp(20px,3vw,32px)}
   .kicker{
     display:inline-flex;align-items:center;gap:10px;
     font-size:.84rem;color:var(--muted);margin-bottom:clamp(16px,2.2vw,22px);
   }
-  .kicker::before{
-    content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none;
-  }
+  .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none}
+  h1{font-size:clamp(2.15rem,6.4vw,3.7rem);font-weight:600;line-height:1.06;letter-spacing:-.034em;max-width:16ch}
+  .hero .sub{margin-top:clamp(20px,2.6vw,26px);max-width:46ch;color:var(--muted);font-size:clamp(1.06rem,2.1vw,1.2rem);line-height:1.65}
 
-  h1{
-    font-size:clamp(2.5rem,8vw,4.6rem);
-    font-weight:600;line-height:1.02;letter-spacing:-.038em;
-  }
+  /* ═══ PROJELER ═══ */
+  .projects{padding:clamp(56px,8vw,96px) 0 clamp(90px,12vw,150px)}
+  .project + .project{margin-top:clamp(88px,12vw,150px)}
 
-  .hero .sub{
-    margin-top:clamp(20px,2.8vw,28px);
-    max-width:44ch;color:var(--muted);
-    font-size:clamp(1.08rem,2.2vw,1.28rem);line-height:1.6;
-  }
+  .pnum{font-size:.76rem;color:var(--faint);margin-bottom:clamp(14px,1.8vw,18px)}
 
   .frame{
-    margin-top:clamp(40px,5.5vw,68px);
     border-radius:var(--r);overflow:hidden;background:var(--bg-warm);
-    box-shadow:0 2px 4px rgba(23,22,28,.04),0 26px 60px -22px rgba(23,22,28,.26);
+    box-shadow:0 2px 4px rgba(23,22,28,.04),0 26px 60px -22px rgba(23,22,28,.24);
   }
   .frame img{width:100%;transition:transform 1.3s cubic-bezier(.2,.7,.25,1)}
   .frame:hover img{transform:scale(1.025)}
+  .cap{margin-top:13px;font-size:.79rem;color:var(--faint)}
 
-  .cap{margin-top:14px;font-size:.79rem;color:var(--faint)}
-
-  .facts{
-    display:flex;flex-wrap:wrap;gap:clamp(20px,3.4vw,44px);
-    margin-top:clamp(34px,4.4vw,52px);
+  /* ikinci proje: ayrilmis yer */
+  .slot{
+    border-radius:var(--r);background:var(--bg-warm);
+    aspect-ratio:1/1;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    text-align:center;padding:32px;
   }
-  .facts div{min-width:110px}
+  .slot img{width:clamp(74px,11vw,108px);opacity:.2}
+  .slot p{font-size:.86rem;color:var(--faint);letter-spacing:.02em;max-width:26ch}
+
+  .ptitle{margin-top:clamp(28px,3.6vw,40px);font-size:clamp(1.6rem,4vw,2.3rem);font-weight:600;letter-spacing:-.028em;line-height:1.1}
+  .pstatus{display:inline-flex;align-items:center;gap:9px;margin-top:13px;font-size:.83rem;color:var(--muted)}
+  .pstatus::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex:none}
+  .pbody{margin-top:20px;max-width:54ch;color:var(--muted);font-size:1.05rem;line-height:1.72}
+  .pbody + .pbody{margin-top:1em}
+
+  .facts{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:clamp(26px,3.4vw,36px)}
   .facts dt{font-size:.72rem;color:var(--faint);margin-bottom:5px}
-  .facts dd{font-size:.98rem;font-weight:500}
+  .facts dd{font-size:.96rem;font-weight:500}
 
   /* ═══ SECTIONS ═══ */
-  section{padding:clamp(96px,14vw,180px) 0}
-
+  section{padding:clamp(90px,13vw,168px) 0}
   .eyebrow{font-size:.78rem;font-weight:500;color:var(--faint);margin-bottom:clamp(18px,2.4vw,24px)}
-  h2{font-size:clamp(1.85rem,4.6vw,2.85rem);font-weight:600;line-height:1.14;letter-spacing:-.028em;max-width:19ch}
+  h2{font-size:clamp(1.8rem,4.4vw,2.7rem);font-weight:600;line-height:1.14;letter-spacing:-.028em;max-width:19ch}
+  .lede{margin-top:clamp(22px,3vw,32px);max-width:56ch;color:var(--muted);font-size:clamp(1.04rem,2vw,1.12rem);line-height:1.75}
+  .lede + .lede{margin-top:1.1em}
 
-  .lede{margin-top:clamp(24px,3.2vw,34px);max-width:58ch;color:var(--muted);font-size:clamp(1.04rem,2vw,1.13rem);line-height:1.75}
-  .lede + .lede{margin-top:1.15em}
-  .lede em{color:var(--ink);font-style:normal;font-weight:500}
+  .studio-grid{display:grid;grid-template-columns:1fr;gap:clamp(44px,6vw,76px);align-items:center}
+  @media (min-width:880px){.studio-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}}
 
-  /* studio: metin + logo yan yana */
-  .studio-grid{display:grid;grid-template-columns:1fr;gap:clamp(48px,7vw,80px);align-items:center}
-  @media (min-width:880px){.studio-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}}
-
-  .mark{position:relative;width:min(100%,340px);aspect-ratio:766/808;margin-inline:auto}
+  .mark{position:relative;width:min(100%,320px);aspect-ratio:766/808;margin-inline:auto}
   .mark .al{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 
   @supports ((-webkit-mask-image:linear-gradient(#000,#000)) or (mask-image:linear-gradient(#000,#000))){
@@ -169,21 +164,14 @@
   @keyframes riseUp{from{-webkit-mask-position:0% 0%;mask-position:0% 0%}to{-webkit-mask-position:0% 100%;mask-position:0% 100%}}
   @keyframes unfurl{from{-webkit-mask-position:100% 0%;mask-position:100% 0%}to{-webkit-mask-position:0% 0%;mask-position:0% 0%}}
   @keyframes sweep{from{opacity:0;transform:rotate(-24deg) scale(.91)}to{opacity:1;transform:rotate(0) scale(1)}}
-
   .mark.on .cir{animation:sweep  .92s cubic-bezier(.24,.7,.3,1)   .04s forwards}
   .mark.on .fig{animation:riseUp .84s cubic-bezier(.32,.06,.22,1) .42s forwards}
   .mark.on .ban{animation:unfurl .88s cubic-bezier(.26,.06,.2,1)  .90s forwards}
 
-  .pillars{display:grid;grid-template-columns:1fr;gap:clamp(34px,4.6vw,52px);margin-top:clamp(66px,9vw,112px)}
-  @media (min-width:820px){.pillars{grid-template-columns:repeat(3,1fr);gap:clamp(36px,4.6vw,60px)}}
-  .pillars h3{font-size:1.06rem;font-weight:600;letter-spacing:-.012em;margin-bottom:9px}
-  .pillars p{color:var(--muted);font-size:.99rem;line-height:1.7;max-width:34ch}
-
   /* ═══ CONTACT ═══ */
   .mail{
-    display:inline-flex;align-items:baseline;gap:.5em;
-    margin-top:clamp(24px,3.2vw,34px);
-    font-size:clamp(1.28rem,4vw,2rem);font-weight:500;letter-spacing:-.028em;
+    display:inline-flex;align-items:baseline;gap:.5em;margin-top:clamp(22px,3vw,32px);
+    font-size:clamp(1.26rem,4vw,1.95rem);font-weight:500;letter-spacing:-.028em;
     text-decoration:none;color:var(--ink);
   }
   .mail span.t{
@@ -195,14 +183,13 @@
   .mail span.a{transition:transform .3s cubic-bezier(.2,.7,.3,1);display:inline-block}
   .mail:hover span.a{transform:translateX(6px)}
 
-  footer{padding:clamp(52px,6vw,72px) 0 clamp(50px,6vw,64px)}
+  footer{padding:clamp(50px,6vw,70px) 0 clamp(48px,6vw,62px)}
   footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
   footer .wm{width:94px;opacity:.66}
   footer .copy{font-size:.8rem;color:var(--faint)}
   footer nav a{font-size:.8rem;color:var(--faint)}
   footer nav a:hover{color:var(--ink)}
 
-  /* ═══ REVEAL ═══ */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.22,.7,.3,1),transform .85s cubic-bezier(.22,.7,.3,1)}
   .rv.in{opacity:1;transform:none}
   .rv.d1{transition-delay:.09s}
@@ -239,7 +226,7 @@
       <img src="/assets/v3-wordmark.png" alt="İdiqut Games" width="900" height="166">
     </a>
     <nav aria-label="Main">
-      <a href="#game">Game</a>
+      <a href="#projects">Projects</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -248,87 +235,93 @@
 
 <main id="main">
 
-  <!-- ═══ HERO — oyun karsilar ═══ -->
   <div class="hero" id="top">
     <div class="wrap">
-      <p class="kicker rv">Our first game — in development</p>
-      <h1 class="rv d1">Hamster Maze</h1>
+      <p class="kicker rv">Two projects in development</p>
+      <h1 class="rv d1">Small mobile games, made with care.</h1>
       <p class="sub rv d2">
-        A hamster, a maze built to stop you, and a piece of cheese
-        somewhere in the middle of it.
+        Nothing is out yet. Both are being built now — they'll be announced
+        on this page first.
       </p>
-
-      <div class="frame rv d2" id="game">
-        <img src="/assets/game-hamster.jpg"
-             alt="Hamster Maze — a hamster in a lantern-lit stone maze, with cheese to collect and a glowing exit gate"
-             width="1100" height="1100" fetchpriority="high">
-      </div>
-      <p class="cap rv d3">Work in progress — art and layout will change before release.</p>
-
-      <dl class="facts rv d3">
-        <div><dt>Platform</dt><dd>Android first</dd></div>
-        <div><dt>Orientation</dt><dd>Portrait</dd></div>
-        <div><dt>Engine</dt><dd>Unity</dd></div>
-        <div><dt>Release</dt><dd>Not announced</dd></div>
-      </dl>
     </div>
   </div>
 
-  <!-- ═══ ABOUT THE GAME ═══ -->
-  <section id="about-game">
+  <!-- ═══ PROJELER — iki yer ═══ -->
+  <div class="projects" id="projects">
     <div class="wrap">
-      <p class="eyebrow rv">The game</p>
-      <h2 class="rv">Run, grab the cheese, get out. Then do it faster.</h2>
-      <p class="lede rv d1">
-        You're a hamster in a maze that was built to stop you. Grab the cheese,
-        find the gate, and keep moving — something is always closing in behind you.
-      </p>
-      <p class="lede rv d2">
-        Death isn't a punishment here, it's rhythm. You're back in half a second,
-        no menus, no waiting, straight into the next run.
-      </p>
-    </div>
-  </section>
 
-  <!-- ═══ STUDIO — logonun ikinci evi ═══ -->
+      <!-- 01 -->
+      <article class="project">
+        <p class="pnum rv">01</p>
+        <div class="frame rv">
+          <img src="/assets/game-hamster.jpg"
+               alt="Hamster Maze — a hamster in a lantern-lit stone maze, with cheese to collect and a glowing exit gate"
+               width="1100" height="1100" fetchpriority="high">
+        </div>
+        <p class="cap rv">Work in progress — art and layout will change before release.</p>
+
+        <h2 class="ptitle rv d1">Hamster Maze</h2>
+        <p class="pstatus rv d1">In development</p>
+        <p class="pbody rv d2">
+          You're a hamster in a maze that was built to stop you. Grab the cheese,
+          find the gate, and keep moving — something is always closing in behind you.
+        </p>
+        <p class="pbody rv d2">
+          Death isn't a punishment here, it's rhythm. You're back in half a second,
+          no menus, no waiting, straight into the next run.
+        </p>
+        <dl class="facts rv d3">
+          <div><dt>Platform</dt><dd>Android first</dd></div>
+          <div><dt>Orientation</dt><dd>Portrait</dd></div>
+          <div><dt>Engine</dt><dd>Unity</dd></div>
+          <div><dt>Release</dt><dd>Not announced</dd></div>
+        </dl>
+      </article>
+
+      <!-- 02 — yer ayrildi -->
+      <article class="project">
+        <p class="pnum rv">02</p>
+        <div class="slot rv">
+          <img src="/assets/icon-512.png" alt="" width="512" height="512" loading="lazy">
+          <p>Artwork coming soon</p>
+        </div>
+
+        <h2 class="ptitle rv d1">Second project</h2>
+        <p class="pstatus rv d1">In development</p>
+        <p class="pbody rv d2">
+          Our second game is in the works. Name, artwork and details will be
+          published here when there's something worth showing.
+        </p>
+        <dl class="facts rv d3">
+          <div><dt>Platform</dt><dd>Mobile</dd></div>
+          <div><dt>Release</dt><dd>Not announced</dd></div>
+        </dl>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ═══ STUDIO ═══ -->
   <section id="studio">
     <div class="wrap">
       <p class="eyebrow rv">Studio</p>
       <div class="studio-grid">
         <div>
-          <h2 class="rv">A small studio, building for the phone in your hand.</h2>
+          <h2 class="rv">A small studio making games for mobile.</h2>
           <p class="lede rv d1">
-            İdiqut Games makes games that are easy to pick up and hard to put down.
-            No clutter, no noise — a clear idea, tuned until it feels right, and
-            nothing else in the way.
+            İdiqut Games is independent and stays small on purpose. One clear idea
+            per game, tuned until it feels right in the hand, and nothing else
+            in the way.
           </p>
           <p class="lede rv d2">
-            The name comes from <em>İdiqut</em>, the title carried by the rulers of the
-            Uyghur Kingdom of Qocho — roughly <em>sacred fortune</em>. The mark keeps
-            that origin, and puts it in front of a screen.
+            Two games are in development. When they're ready, they go up here first.
           </p>
         </div>
 
-        <div class="mark" id="mark" role="img"
-             aria-label="İdiqut Games emblem: a seated figure holding a standard, a brushed circle behind, a crimson banner streaming out">
+        <div class="mark" id="mark" role="img" aria-label="İdiqut Games emblem">
           <img class="al cir" src="/assets/v3-art-circle.png" alt="" width="880" height="928" loading="lazy">
           <img class="al fig" src="/assets/v3-art-figure.png" alt="" width="880" height="928" loading="lazy">
           <img class="al ban" src="/assets/v3-art-banner.png" alt="" width="880" height="928" loading="lazy">
-        </div>
-      </div>
-
-      <div class="pillars">
-        <div class="rv">
-          <h3>Small by design</h3>
-          <p>We ship focused games, not feature lists. One idea, done properly, beats ten half-finished ones.</p>
-        </div>
-        <div class="rv d1">
-          <h3>Feel comes first</h3>
-          <p>Controls, timing and feedback get tuned before anything else. If it doesn't feel good in the hand, it isn't finished.</p>
-        </div>
-        <div class="rv d2">
-          <h3>Runs anywhere</h3>
-          <p>Built to be light and fast on the phone you already own — not just on this year's flagship.</p>
         </div>
       </div>
     </div>
@@ -353,7 +346,7 @@
     <img class="wm" src="/assets/v3-wordmark.png" alt="İdiqut Games" width="900" height="166" loading="lazy">
     <p class="copy">© 2026 İdiqut Games</p>
     <nav aria-label="Footer">
-      <a href="#game">Game</a>
+      <a href="#projects">Projects</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -364,66 +357,63 @@
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var hdr = document.getElementById('hdr');
-  var ticking = false;
-  function frame(){ hdr.classList.toggle('solid', (window.scrollY||0) > 12); ticking = false; }
-  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
-  frame();
-  window.addEventListener('scroll', onScroll, {passive:true});
-
+  var hdr   = document.getElementById('hdr');
+  var mark  = document.getElementById('mark');
   var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
-  var mark = document.getElementById('mark');
   var canMask = window.CSS && CSS.supports &&
                 (CSS.supports('mask-image','linear-gradient(#000,#000)') ||
                  CSS.supports('-webkit-mask-image','linear-gradient(#000,#000)'));
 
-  function show(el){ el.classList.add('in'); }
-  function showAll(){ items.forEach(show); }
-
-  // Ekranda olani hemen ac. Gozlemciye guvenip beklemek yok: ilk turda
-  // kacirilirsa sayfa kaydirilmadigi surece bir daha tetiklenmiyor ve
-  // icerik kalici olarak gorunmez kaliyor.
-  function revealVisible(){
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    items.forEach(function(el){
-      if (el.classList.contains('in')) return;
-      var r = el.getBoundingClientRect();
-      if (r.top < vh * 0.94 && r.bottom > 0) show(el);
-    });
+  if (reduce) {
+    items.forEach(function(el){ el.classList.add('in'); });
+    if (mark) mark.classList.add('on');
+    hdr.classList.toggle('solid', (window.scrollY||0) > 12);
+    return;
   }
 
-  if (!window.IntersectionObserver || reduce) {
-    showAll();
-    if (mark) mark.classList.add('on');
-  } else {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
-      });
-    }, {rootMargin:'0px 0px -9% 0px', threshold:.05});
-    items.forEach(function(el){ io.observe(el); });
+  // Tek bir kaydirma dongusu her seyi yurutur.
+  //  - IntersectionObserver yok: geri cagrisini ilk turda kacirdiginda
+  //    icerik, sayfa kaydirilmadigi surece kalici gizli kaliyordu.
+  //  - requestAnimationFrame yok: arka plan sekmesinde durduruluyor ve
+  //    ilk acilis ona bagli kalirsa sayfa bos gorunuyor. Kisilma zaman
+  //    damgasiyla yapiliyor; is zaten sadece birkac sinif degisimi.
+  function tick(){
+    var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+    hdr.classList.toggle('solid', (window.scrollY || 0) > 12);
 
-    revealVisible();
-    window.addEventListener('load', revealVisible);
-    // Emniyet agi: ne olursa olsun hicbir sey kalici gizli kalmasin.
-    setTimeout(showAll, 2600);
+    for (var i = items.length - 1; i >= 0; i--) {
+      var el = items[i], r = el.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) {
+        el.classList.add('in');
+        items.splice(i, 1);            // acilani listeden dusur
+      }
+    }
 
-    if (mark && canMask) {
-      var mo = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting) { mark.classList.add('on'); mo.unobserve(e.target); }
-        });
-      }, {rootMargin:'0px 0px -14% 0px', threshold:.2});
-      mo.observe(mark);
-      setTimeout(function(){
-        var r = mark.getBoundingClientRect();
-        var vh = window.innerHeight || 0;
-        if (r.top < vh && r.bottom > 0) mark.classList.add('on');
-      }, 900);
-    } else if (mark) {
-      mark.classList.add('on');
+    if (mark && !mark.classList.contains('on')) {
+      var m = mark.getBoundingClientRect();
+      if (m.top < vh * 0.86 && m.bottom > 0) mark.classList.add('on');
     }
   }
+
+  var last = 0, pending = 0;
+  function now(){ return (window.performance && performance.now) ? performance.now() : +new Date(); }
+  function schedule(){
+    var t = now();
+    if (t - last > 70) { last = t; tick(); }
+    else if (!pending) { pending = setTimeout(function(){ pending = 0; last = now(); tick(); }, 70); }
+  }
+
+  tick();                                   // ilk acilis: dogrudan, beklemeden
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule, {passive:true});
+  window.addEventListener('load', tick);
+
+  // Kaydirma olayina da tek basina guvenmiyoruz. Acilacak oge kaldigi
+  // surece dusuk frekansta yokluyoruz; hepsi acilinca kendini kapatir.
+  var poll = setInterval(function(){
+    tick();
+    if (!items.length && (!mark || mark.classList.contains('on'))) clearInterval(poll);
+  }, 250);
 })();
 </script>
 
