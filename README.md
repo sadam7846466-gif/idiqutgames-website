@@ -114,3 +114,21 @@ Push'tan ~1 dakika sonra canlıda görünür.
 - `privacy.html` — Gizlilik Politikası (App Store & Google Play için **zorunlu**)
 - `terms.html` — Kullanım Şartları
 - `support.html` — Destek sayfası (App Store'un istediği Support URL)
+
+## Oyun çıkınca yapılacaklar
+
+`index.html` içinde her projenin altında hazır duruyor:
+
+```html
+<div class="stores">
+  <span class="store">Google Play<span class="soon">Soon</span></span>
+  <span class="store">App Store<span class="soon">Soon</span></span>
+</div>
+```
+
+Çıkınca `<span class="store">` → `<a class="store" href="MAGAZA_LINKI">` yap ve
+içindeki `<span class="soon">Soon</span>` satırını sil. Ayrıca `Release`
+künyesini `Not announced` yerine tarihe çevir.
+
+İkinci proje için ayrılmış yer: `.slot` bloğu. Görsel gelince `.slot`'u
+`.frame` + `<img>` ile değiştir, başlığı ve sloganı yaz.

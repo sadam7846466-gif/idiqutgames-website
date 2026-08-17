@@ -121,11 +121,25 @@
   .slot img{width:clamp(74px,11vw,108px);opacity:.2}
   .slot p{font-size:.86rem;color:var(--faint);letter-spacing:.02em;max-width:26ch}
 
-  .ptitle{margin-top:clamp(28px,3.6vw,40px);font-size:clamp(1.6rem,4vw,2.3rem);font-weight:600;letter-spacing:-.028em;line-height:1.1}
-  .pstatus{display:inline-flex;align-items:center;gap:9px;margin-top:13px;font-size:.83rem;color:var(--muted)}
+  .ptitle{margin-top:clamp(28px,3.6vw,40px);font-size:clamp(1.7rem,4.2vw,2.45rem);font-weight:600;letter-spacing:-.03em;line-height:1.08}
+  .ptag{margin-top:10px;font-size:clamp(1.02rem,2.1vw,1.16rem);color:var(--ink);opacity:.72;letter-spacing:-.012em}
+  .pstatus{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:.83rem;color:var(--muted)}
   .pstatus::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex:none}
   .pbody{margin-top:20px;max-width:54ch;color:var(--muted);font-size:1.05rem;line-height:1.72}
   .pbody + .pbody{margin-top:1em}
+
+  /* magaza butonlari — cikinca <a> olacak, simdilik pasif */
+  .stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,3vw,32px)}
+  .store{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid rgba(23,22,28,.16);border-radius:11px;
+    padding:10px 16px;font-size:.86rem;font-weight:500;color:var(--muted);
+    background:transparent;
+  }
+  .store .soon{
+    font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);border-left:1px solid rgba(23,22,28,.14);padding-left:9px;
+  }
 
   .facts{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:clamp(26px,3.4vw,36px)}
   .facts dt{font-size:.72rem;color:var(--faint);margin-bottom:5px}
@@ -261,6 +275,7 @@
         <p class="cap rv">Work in progress — art and layout will change before release.</p>
 
         <h2 class="ptitle rv d1">Hamster Maze</h2>
+        <p class="ptag rv d1">A maze runner with a hungry hamster.</p>
         <p class="pstatus rv d1">In development</p>
         <p class="pbody rv d2">
           You're a hamster in a maze that was built to stop you. Grab the cheese,
@@ -270,6 +285,12 @@
           Death isn't a punishment here, it's rhythm. You're back in half a second,
           no menus, no waiting, straight into the next run.
         </p>
+
+        <div class="stores rv d2">
+          <span class="store">Google Play<span class="soon">Soon</span></span>
+          <span class="store">App Store<span class="soon">Soon</span></span>
+        </div>
+
         <dl class="facts rv d3">
           <div><dt>Platform</dt><dd>Android first</dd></div>
           <div><dt>Orientation</dt><dd>Portrait</dd></div>
@@ -287,11 +308,18 @@
         </div>
 
         <h2 class="ptitle rv d1">Second project</h2>
+        <p class="ptag rv d1">Name to be announced.</p>
         <p class="pstatus rv d1">In development</p>
         <p class="pbody rv d2">
           Our second game is in the works. Name, artwork and details will be
           published here when there's something worth showing.
         </p>
+
+        <div class="stores rv d2">
+          <span class="store">Google Play<span class="soon">Soon</span></span>
+          <span class="store">App Store<span class="soon">Soon</span></span>
+        </div>
+
         <dl class="facts rv d3">
           <div><dt>Platform</dt><dd>Mobile</dd></div>
           <div><dt>Release</dt><dd>Not announced</dd></div>
