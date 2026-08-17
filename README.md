@@ -3,6 +3,11 @@
 İdiqut Games kurumsal web sitesi. Tek sayfa, statik, hiçbir dış bağımlılığı yok
 (font/script/CDN çağrısı yapmaz — çok hızlı açılır, çerez kullanmaz).
 
+**Tasarım:** hibrit — gövde kâğıt tonu (`#F5F3EE`), hero ve footer tam genişlikte
+siyah sahne. Logo siyah zemin için tasarlandığı için kendi karanlık çerçevesinde
+duruyor; sayfanın geri kalanı aydınlık. Oyun bölümü ustwo Games düzeninde:
+büyük kare görsel + yanında başlık ve açıklama.
+
 **Hosting:** GitHub Pages · **Repo:** `sadam7846466-gif/idiqutgames-website` · **Branch:** `main`
 
 ---
@@ -72,6 +77,9 @@ Bağlı-bileşen analiziyle katmanlara ayrıldı, palet-PNG ile sıkıştırıld
 | `art-seal.png` | Hero — mühür, damga animasyonuyla basılır | 5 KB |
 | `wordmark2.png` | Hero ve header yazısı | 10 KB |
 | `seal.png` | Oyun kartı ve footer'daki mühür | 41 KB |
+| `game-hamster.jpg` | Games bölümü — Hamster Maze anahtar görseli (konsept, gerçek ekran görüntüsü değil) | 196 KB |
+| `wordmark-dark.png` | Açık zeminli header için koyu wordmark | 4 KB |
+| `game-hamster-logo.png` | Oyunun kendi logosu (şu an sayfada kullanılmıyor) | 9 KB |
 | `logo-full.png` | Basın kullanımı için tam logo | 66 KB |
 | `og-image.png` | WhatsApp/X/Facebook link önizlemesi (1200×630) | 76 KB |
 | `icon-512.png` `apple-touch-icon.png` `favicon-32.png` | Tarayıcı sekmesi ve telefon ana ekranı (mürekkep bloğu kırpımı) | — |
@@ -100,9 +108,11 @@ Push'tan ~1 dakika sonra canlıda görünür.
 - [ ] AdMob → Apps → App settings → **Developer website** alanına `idiqutgames.com` yaz
 - [ ] Google Search Console'a siteyi ekle
 
-## Oyun çıkınca eklenecekler
+## Hamster Maze çıkınca
 
-- Oyunlar bölümü (ekran görüntüleri + App Store / Google Play butonları)
+- `game-hamster.jpg` yerine **gerçek ekran görüntüsü** koy (şu anki konsept görseli)
+- Google Play / App Store butonları ekle
+- Oyunun kendi sayfası (`hamster-maze.html`) — ustwo'daki "More →" gibi
 - `privacy.html` — Gizlilik Politikası (App Store & Google Play için **zorunlu**)
 - `terms.html` — Kullanım Şartları
 - `support.html` — Destek sayfası (App Store'un istediği Support URL)

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>İdiqut Games — Independent Mobile Game Studio</title>
-<meta name="description" content="İdiqut Games is an independent studio building small, sharp games for mobile. Our first title is in development.">
+<meta name="description" content="İdiqut Games is an independent studio building small, sharp games for mobile. Hamster Maze is in development.">
 <link rel="canonical" href="https://idiqutgames.com/">
 <meta name="theme-color" content="#09090B">
 
@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://idiqutgames.com/">
 <meta property="og:site_name" content="İdiqut Games">
 <meta property="og:title" content="İdiqut Games — Independent Mobile Game Studio">
-<meta property="og:description" content="An independent studio building small, sharp games for mobile. Our first title is in development.">
+<meta property="og:description" content="An independent studio building small, sharp games for mobile. Hamster Maze is in development.">
 <meta property="og:image" content="https://idiqutgames.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -31,32 +31,31 @@
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "İdiqut Games",
-  "alternateName": "Idiqut Games",
-  "url": "https://idiqutgames.com/",
-  "logo": "https://idiqutgames.com/assets/icon-512.png",
-  "email": "idiqutgames@gmail.com",
-  "description": "Independent game studio building small, sharp games for mobile."
+  "@context":"https://schema.org","@type":"Organization",
+  "name":"İdiqut Games","alternateName":"Idiqut Games",
+  "url":"https://idiqutgames.com/",
+  "logo":"https://idiqutgames.com/assets/icon-512.png",
+  "email":"idiqutgames@gmail.com",
+  "description":"Independent game studio building small, sharp games for mobile."
 }
 </script>
 
 <style>
   :root{
-    --bg:#09090B;
-    --bg-2:#101013;
-    --fg:#EDE9E3;          /* kemik beyazi — logodaki panelden */
+    --paper:#F5F3EE;        /* govde — logodaki kagit tonu */
+    --paper-2:#EBE7DF;
+    --ink:#15120F;          /* ana metin */
+    --muted:#6C665E;
+    --faint:#9B948B;
+    --line:rgba(21,18,15,.13);
+    --line-soft:rgba(21,18,15,.075);
+    --red:#A80B0A;          /* logodan olculen marka kizili */
+    --red-hi:#C0141A;
+    --stage:#09090B;        /* hero + footer sahnesi */
     --bone:#D2CDC6;
-    --muted:#8E8A83;
-    --faint:#5C5A55;
-    --red:#C0141A;         /* arayuz vurgusu */
-    --red-deep:#A80B0A;    /* logodan olculen marka kizili */
-    --line:rgba(210,205,198,.11);
-    --line-soft:rgba(210,205,198,.06);
     --head:64px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
-    --wrap:1120px;
+    --wrap:1160px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -64,235 +63,219 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
   body{
-    background:var(--bg);
-    color:var(--fg);
-    font-family:var(--font);
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+    background:var(--paper);color:var(--ink);
+    font-family:var(--font);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     overflow-x:hidden;
   }
-
   img{max-width:100%;height:auto;display:block}
   a{color:inherit}
-
   :focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:2px}
 
-  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(22px,5vw,48px)}
-
-  .skip{position:absolute;left:-9999px;top:0;background:var(--fg);color:var(--bg);padding:12px 18px;z-index:100}
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(22px,5vw,52px)}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:100}
   .skip:focus{left:0}
 
-  /* ═══ HEADER ═══ */
+  /* ═══ HEADER — hero uzerinde seffaf/beyaz yazi, sonra kagit/koyu yazi ═══ */
   header{
     position:fixed;inset:0 0 auto 0;height:var(--head);z-index:50;
     display:flex;align-items:center;
-    background:rgba(9,9,11,0);
-    border-bottom:1px solid transparent;
-    transition:background .3s ease,border-color .3s ease;
+    background:transparent;border-bottom:1px solid transparent;
+    transition:background .35s ease,border-color .35s ease;
   }
   header.solid{
-    background:rgba(9,9,11,.84);
+    background:rgba(245,243,238,.86);
     -webkit-backdrop-filter:saturate(150%) blur(14px);
             backdrop-filter:saturate(150%) blur(14px);
     border-bottom-color:var(--line-soft);
   }
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
-  .brand{display:block;flex:none;text-decoration:none}
-  .brand img{width:clamp(96px,15vw,124px)}
+  .brand{position:relative;display:block;flex:none;text-decoration:none;width:clamp(100px,15vw,128px)}
+  .brand img{width:100%;transition:opacity .35s ease}
+  .brand .dark{position:absolute;inset:0;opacity:0}
+  header.solid .brand .light{opacity:0}
+  header.solid .brand .dark{opacity:1}
 
   nav{display:flex;align-items:center;gap:clamp(17px,3.3vw,34px)}
   nav a{
-    text-decoration:none;font-size:.78rem;font-weight:500;
-    letter-spacing:.17em;text-transform:uppercase;color:var(--muted);
-    transition:color .18s ease;white-space:nowrap;
+    text-decoration:none;font-size:.77rem;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(210,205,198,.72);transition:color .25s ease;white-space:nowrap;
   }
-  nav a:hover{color:var(--fg)}
+  nav a:hover{color:#fff}
+  header.solid nav a{color:var(--muted)}
+  header.solid nav a:hover{color:var(--ink)}
 
-  /* ═══ HERO ═══ */
+  /* ═══ HERO — siyah sahne ═══ */
   .hero{
-    position:relative;min-height:100svh;
+    position:relative;background:var(--stage);color:var(--bone);
+    min-height:100svh;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     text-align:center;
-    padding:calc(var(--head) + 28px) clamp(22px,5vw,48px) 92px;
+    padding:calc(var(--head) + 30px) clamp(22px,5vw,52px) 96px;
     overflow:hidden;
   }
   .hero .glow{position:absolute;pointer-events:none;z-index:0;border-radius:50%}
   .hero .glow.r{
     top:6%;left:50%;transform:translateX(-4%);
-    width:min(96vw,780px);aspect-ratio:1;
-    background:radial-gradient(circle,rgba(168,11,10,.17) 0%,rgba(168,11,10,.05) 40%,transparent 68%);
+    width:min(96vw,760px);aspect-ratio:1;
+    background:radial-gradient(circle,rgba(168,11,10,.19) 0%,rgba(168,11,10,.05) 40%,transparent 68%);
   }
   .hero .glow.w{
-    top:-6%;left:50%;transform:translateX(-58%);
-    width:min(80vw,620px);aspect-ratio:1;
-    background:radial-gradient(circle,rgba(210,205,198,.06) 0%,rgba(210,205,198,.018) 42%,transparent 70%);
+    top:-4%;left:50%;transform:translateX(-58%);
+    width:min(80vw,600px);aspect-ratio:1;
+    background:radial-gradient(circle,rgba(210,205,198,.07) 0%,rgba(210,205,198,.02) 42%,transparent 70%);
   }
   .hero > *:not(.glow){position:relative;z-index:1}
 
-  /* ─── illustrasyon katmanlari ─── */
-  .art{
-    position:relative;
-    width:clamp(248px,43vw,424px);
-    aspect-ratio:762/780;
-    margin-bottom:clamp(26px,4vw,38px);
-  }
+  .art{position:relative;width:clamp(242px,41vw,404px);aspect-ratio:762/780;margin-bottom:clamp(24px,3.6vw,34px)}
   .art .al{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 
-  /* Gizli baslangic CSS'te durur — JS beklenmez, parlama olmaz.
-     Maske desteklenmiyorsa blok uygulanmaz, logo normal gorunur. */
+  /* Gizli baslangic CSS'te — JS beklenmez, parlama olmaz. */
   @supports ((-webkit-mask-image:linear-gradient(#000,#000)) or (mask-image:linear-gradient(#000,#000))){
     .art .ink{
       -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 49%,transparent 100%);
               mask-image:linear-gradient(to bottom,#000 0%,#000 40%,transparent 49%,transparent 100%);
-      -webkit-mask-size:100% 300%;      mask-size:100% 300%;
-      -webkit-mask-repeat:no-repeat;    mask-repeat:no-repeat;
-      -webkit-mask-position:0% 100%;    mask-position:0% 100%;
+      -webkit-mask-size:100% 300%;mask-size:100% 300%;
+      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+      -webkit-mask-position:0% 100%;mask-position:0% 100%;
     }
     .art .ban{
       -webkit-mask-image:linear-gradient(to right,#000 0%,#000 38%,transparent 50%,transparent 100%);
               mask-image:linear-gradient(to right,#000 0%,#000 38%,transparent 50%,transparent 100%);
-      -webkit-mask-size:300% 100%;      mask-size:300% 100%;
-      -webkit-mask-repeat:no-repeat;    mask-repeat:no-repeat;
-      -webkit-mask-position:100% 0%;    mask-position:100% 0%;
+      -webkit-mask-size:300% 100%;mask-size:300% 100%;
+      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+      -webkit-mask-position:100% 0%;mask-position:100% 0%;
     }
     .art .sea{opacity:0;transform:scale(1.75) rotate(-7deg)}
   }
-
-  @keyframes inkDown{
-    from{-webkit-mask-position:0% 100%;mask-position:0% 100%}
-    to  {-webkit-mask-position:0% 0%;  mask-position:0% 0%}
-  }
-  @keyframes banRight{
-    from{-webkit-mask-position:100% 0%;mask-position:100% 0%}
-    to  {-webkit-mask-position:0% 0%;  mask-position:0% 0%}
-  }
+  @keyframes inkDown{from{-webkit-mask-position:0% 100%;mask-position:0% 100%}to{-webkit-mask-position:0% 0%;mask-position:0% 0%}}
+  @keyframes banRight{from{-webkit-mask-position:100% 0%;mask-position:100% 0%}to{-webkit-mask-position:0% 0%;mask-position:0% 0%}}
   @keyframes stamp{
-    0%  {opacity:0;transform:scale(1.75) rotate(-7deg)}
-    58% {opacity:1;transform:scale(.93) rotate(1.5deg)}
+    0%{opacity:0;transform:scale(1.75) rotate(-7deg)}
+    58%{opacity:1;transform:scale(.93) rotate(1.5deg)}
     100%{opacity:1;transform:scale(1) rotate(0)}
   }
-
   .art.on .ink{animation:inkDown  .98s cubic-bezier(.34,.05,.2,1)  .06s forwards}
   .art.on .ban{animation:banRight .92s cubic-bezier(.28,.06,.2,1)  .64s forwards}
   .art.on .sea{animation:stamp    .48s cubic-bezier(.3,1.35,.5,1) 1.40s forwards}
 
-  .hero .word{width:clamp(238px,39vw,392px);margin-bottom:clamp(24px,3.6vw,32px)}
-
-  .hero p{
-    font-size:clamp(1.04rem,2.5vw,1.26rem);
-    line-height:1.5;letter-spacing:-.01em;
-    color:var(--fg);max-width:34ch;
-  }
-  .hero .rule{
-    width:56px;height:2px;margin:clamp(24px,3.6vw,32px) auto 0;
-    background:linear-gradient(90deg,var(--red-deep),var(--red));
-    border-radius:2px;
-  }
+  .hero .word{width:clamp(232px,37vw,376px);margin-bottom:clamp(22px,3.2vw,30px)}
+  .hero p{font-size:clamp(1.02rem,2.4vw,1.24rem);line-height:1.5;letter-spacing:-.01em;color:#EDE9E3;max-width:34ch}
+  .hero .rule{width:56px;height:2px;margin:clamp(22px,3.4vw,30px) auto 0;background:linear-gradient(90deg,var(--red),var(--red-hi));border-radius:2px}
 
   .scroll{
     position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:1;
-    font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--faint);text-decoration:none;
-    display:flex;flex-direction:column;align-items:center;gap:9px;
-    transition:color .2s ease;
+    font-size:.61rem;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(210,205,198,.45);text-decoration:none;
+    display:flex;flex-direction:column;align-items:center;gap:9px;transition:color .2s ease;
   }
-  .scroll:hover{color:var(--muted)}
-  .scroll::after{
-    content:"";width:1px;height:26px;
-    background:linear-gradient(180deg,var(--faint),transparent);
-    animation:drop 2.4s ease-in-out infinite;
-  }
-  @keyframes drop{0%,100%{opacity:.35;transform:scaleY(.62);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+  .scroll:hover{color:var(--bone)}
+  .scroll::after{content:"";width:1px;height:26px;background:linear-gradient(180deg,rgba(210,205,198,.5),transparent);animation:drop 2.4s ease-in-out infinite}
+  @keyframes drop{0%,100%{opacity:.3;transform:scaleY(.62);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
 
-  /* ═══ SECTIONS ═══ */
-  section{padding:clamp(84px,12vw,140px) 0;position:relative}
-  section + section{border-top:1px solid var(--line-soft)}
-  #games{overflow:hidden}
+  /* ═══ SECTIONS — kagit ═══ */
+  section{padding:clamp(86px,12vw,146px) 0;position:relative}
+  #studio{border-top:none}
+  #games{background:var(--paper-2)}
 
   .label{
     display:flex;align-items:center;gap:13px;
-    font-size:.67rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
-    color:var(--faint);margin-bottom:clamp(24px,3.6vw,34px);
+    font-size:.67rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--faint);margin-bottom:clamp(22px,3.4vw,32px);
   }
   .label::before{content:"";width:26px;height:1px;background:var(--red);flex:none}
 
-  h2{
-    font-size:clamp(1.85rem,5.4vw,3rem);
-    font-weight:600;line-height:1.1;letter-spacing:-.028em;max-width:18ch;
-  }
+  h2{font-size:clamp(2rem,5.8vw,3.35rem);font-weight:700;line-height:1.06;letter-spacing:-.032em;max-width:17ch}
 
   .head{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,34px);align-items:start}
   @media (min-width:900px){
     .head{grid-template-columns:minmax(0,1.06fr) minmax(0,1fr);gap:clamp(48px,7vw,104px)}
-    .head h2{margin-bottom:0}
-    .head-r{padding-top:.5em}
+    .head-r{padding-top:.55em}
   }
 
-  .prose{max-width:56ch;color:var(--muted);font-size:clamp(1rem,2vw,1.075rem);line-height:1.72}
+  .prose{max-width:56ch;color:var(--muted);font-size:clamp(1rem,2vw,1.09rem);line-height:1.72}
   .prose + .prose{margin-top:1.1em}
-  .prose em{color:var(--bone);font-style:normal;font-weight:500}
+  .prose em{color:var(--ink);font-style:normal;font-weight:600}
 
   .grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));
-    gap:1px;margin-top:clamp(52px,7vw,76px);
-    background:var(--line-soft);border:1px solid var(--line-soft);
-    border-radius:12px;overflow:hidden;
+    gap:1px;margin-top:clamp(52px,7vw,78px);
+    background:var(--line-soft);border:1px solid var(--line-soft);border-radius:14px;overflow:hidden;
   }
-  .cell{background:var(--bg);padding:clamp(26px,3.6vw,34px);transition:background .25s ease}
-  .cell:hover{background:var(--bg-2)}
-  .cell .n{font-size:.67rem;font-weight:600;letter-spacing:.2em;color:var(--red);margin-bottom:15px}
-  .cell h3{font-size:1.06rem;font-weight:600;letter-spacing:-.012em;margin-bottom:9px}
+  .cell{background:var(--paper);padding:clamp(26px,3.6vw,36px);transition:background .25s ease}
+  .cell:hover{background:#FBFAF7}
+  .cell .n{font-size:.67rem;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:15px}
+  .cell h3{font-size:1.08rem;font-weight:700;letter-spacing:-.014em;margin-bottom:9px}
   .cell p{color:var(--muted);font-size:.94rem;line-height:1.62}
 
-  .card{
-    margin-top:clamp(40px,5.5vw,58px);
-    border:1px solid var(--line);border-radius:14px;
-    background:
-      radial-gradient(120% 140% at 88% 8%,rgba(168,11,10,.12) 0%,transparent 58%),
-      linear-gradient(180deg,var(--bg-2),var(--bg));
-    padding:clamp(30px,4.6vw,52px);
-    display:flex;align-items:center;gap:clamp(26px,4.6vw,54px);flex-wrap:wrap;
+  /* ═══ OYUN KARTI (ustwo tarzi) ═══ */
+  .game{
+    margin-top:clamp(46px,6vw,70px);
+    display:grid;grid-template-columns:1fr;gap:clamp(28px,4.5vw,56px);align-items:center;
   }
-  .card .art-seal{flex:none;width:clamp(52px,8vw,74px);opacity:.92}
-  .card .meta{flex:1;min-width:210px}
-  .card .status{
-    display:inline-flex;align-items:center;gap:9px;
-    font-size:.67rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--muted);border:1px solid var(--line);border-radius:100px;
-    padding:6px 14px 6px 11px;margin-bottom:17px;
-  }
-  .dot{
-    width:6px;height:6px;border-radius:50%;background:var(--red);flex:none;
-    box-shadow:0 0 0 0 rgba(192,20,26,.55);animation:pulse 2.6s ease-out infinite;
-  }
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(192,20,26,.5)}
-    70%{box-shadow:0 0 0 8px rgba(192,20,26,0)}
-    100%{box-shadow:0 0 0 0 rgba(192,20,26,0)}
-  }
-  .card h3{font-size:clamp(1.25rem,3.2vw,1.6rem);font-weight:600;letter-spacing:-.02em;margin-bottom:11px}
-  .card p{color:var(--muted);max-width:48ch;line-height:1.65}
+  @media (min-width:900px){.game{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}}
 
+  .game .shot{
+    position:relative;border-radius:16px;overflow:hidden;
+    background:var(--paper);
+    box-shadow:0 1px 2px rgba(21,18,15,.06),0 18px 42px -14px rgba(21,18,15,.28);
+    transition:transform .5s cubic-bezier(.22,.7,.3,1),box-shadow .5s ease;
+  }
+  .game .shot:hover{transform:translateY(-5px);box-shadow:0 1px 2px rgba(21,18,15,.06),0 30px 60px -16px rgba(21,18,15,.34)}
+  .game .shot img{width:100%}
+  .game .cap{
+    margin-top:11px;font-size:.71rem;letter-spacing:.06em;color:var(--faint);
+  }
+
+  .status{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--line);border-radius:100px;
+    padding:6px 14px 6px 11px;margin-bottom:19px;background:var(--paper);
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex:none;
+       box-shadow:0 0 0 0 rgba(168,11,10,.5);animation:pulse 2.6s ease-out infinite}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(168,11,10,.45)}
+    70%{box-shadow:0 0 0 8px rgba(168,11,10,0)}
+    100%{box-shadow:0 0 0 0 rgba(168,11,10,0)}
+  }
+  .game h3{font-size:clamp(1.7rem,4.4vw,2.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin-bottom:14px}
+  .game .meta p{color:var(--muted);max-width:46ch;line-height:1.7;font-size:clamp(1rem,2vw,1.06rem)}
+  .game .meta p + p{margin-top:.9em}
+  .specs{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;
+  }
+  .specs span{
+    font-size:.7rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--line-soft);background:var(--paper);
+    border-radius:7px;padding:6px 11px;
+  }
+
+  /* ═══ CONTACT ═══ */
   .mail{
     display:inline-block;margin-top:clamp(12px,2vw,18px);
-    font-size:clamp(1.28rem,4.6vw,2.15rem);font-weight:500;letter-spacing:-.028em;
-    text-decoration:none;color:var(--fg);padding-bottom:6px;
-    background-image:linear-gradient(90deg,var(--red-deep),var(--red));
+    font-size:clamp(1.24rem,4.4vw,2.1rem);font-weight:600;letter-spacing:-.03em;
+    text-decoration:none;color:var(--ink);padding-bottom:6px;
+    background-image:linear-gradient(90deg,var(--red),var(--red-hi));
     background-size:100% 2px;background-repeat:no-repeat;background-position:0 100%;
     transition:opacity .18s ease;word-break:break-word;
   }
-  .mail:hover{opacity:.72}
+  .mail:hover{opacity:.66}
 
-  footer{border-top:1px solid var(--line-soft);padding:44px 0 52px}
-  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
-  footer img{width:22px;opacity:.55}
-  footer .copy{font-size:.79rem;color:var(--faint)}
-  footer nav a{font-size:.71rem}
+  /* ═══ FOOTER — siyah sahne ═══ */
+  footer{background:var(--stage);color:var(--bone);padding:clamp(52px,7vw,72px) 0 clamp(44px,6vw,58px)}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+  footer .fbrand{display:flex;align-items:center;gap:15px}
+  footer .fbrand .seal{width:24px;opacity:.6}
+  footer .fbrand .wm{width:104px;opacity:.85}
+  footer .copy{font-size:.78rem;color:rgba(210,205,198,.44)}
+  footer nav a{font-size:.7rem;color:rgba(210,205,198,.6)}
+  footer nav a:hover{color:var(--bone)}
 
   /* ═══ REVEAL ═══ */
-  .rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.22,.7,.3,1),transform .8s cubic-bezier(.22,.7,.3,1)}
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.22,.7,.3,1),transform .85s cubic-bezier(.22,.7,.3,1)}
   .rv.in{opacity:1;transform:none}
   .rv.d1{transition-delay:.09s}
   .rv.d2{transition-delay:.18s}
@@ -304,55 +287,29 @@
   .hero.no-cine .rv.hd2{transition-delay:.20s}
   .hero.no-cine .rv.hd3{transition-delay:.30s}
 
-  /* ═══ MUREKKEP DOKUSU ═══ */
+  /* ═══ KAGIT DOKUSU ═══ */
   body::after{
-    content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size:180px 180px;
+    content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.032;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size:200px 200px;mix-blend-mode:multiply;
   }
-
-  /* ═══ IMLEC ISIGI ═══ */
-  .cursor-light{
-    position:fixed;top:0;left:0;width:620px;height:620px;margin:-310px 0 0 -310px;
-    border-radius:50%;pointer-events:none;z-index:1;opacity:0;
-    background:radial-gradient(circle,rgba(210,205,198,.05) 0%,rgba(210,205,198,.014) 40%,transparent 68%);
-    transform:translate3d(-50vw,-50vh,0);transition:opacity .5s ease;will-change:transform;
-  }
-  .cursor-light.lit{opacity:1}
-  @media (hover:none),(pointer:coarse){.cursor-light{display:none}}
-
-  /* ═══ FILIGRAN ═══ */
-  .watermark{
-    position:absolute;top:50%;left:50%;
-    width:min(108vw,880px);aspect-ratio:762/780;
-    transform:translate3d(-50%,-50%,0);
-    opacity:.035;pointer-events:none;z-index:0;
-    background:url("/assets/art-ink.png") center/contain no-repeat;
-    will-change:transform;
-  }
-  #games .wrap{position:relative;z-index:1}
 
   @media (prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
     .dot,.scroll::after{animation:none}
     .art .ink,.art .ban{-webkit-mask-image:none!important;mask-image:none!important}
     .art .sea{opacity:1!important;transform:none!important}
-    .cursor-light{display:none}
-    .watermark{transform:translate3d(-50%,-50%,0)!important}
+    .game .shot:hover{transform:none}
   }
-
   @media (max-width:560px){
-    nav a{font-size:.69rem;letter-spacing:.1em}
-    .card{flex-direction:column;align-items:flex-start}
+    nav a{font-size:.68rem;letter-spacing:.1em}
   }
 </style>
 
 <noscript><style>
-  /* JS kapaliysa hicbir sey gizli kalmasin */
   .art .ink,.art .ban{-webkit-mask-image:none!important;mask-image:none!important}
   .art .sea{opacity:1!important;transform:none!important}
   .rv{opacity:1!important;transform:none!important}
-  .cursor-light{display:none}
 </style></noscript>
 </head>
 <body>
@@ -362,7 +319,8 @@
 <header id="hdr">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="İdiqut Games — home">
-      <img src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169">
+      <img class="light" src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169">
+      <img class="dark" src="/assets/wordmark-dark.png" alt="" width="900" height="169" aria-hidden="true">
     </a>
     <nav aria-label="Main">
       <a href="#studio">Studio</a>
@@ -374,7 +332,7 @@
 
 <main id="main">
 
-  <!-- ═══ HERO ═══ -->
+  <!-- ═══ HERO — siyah sahne ═══ -->
   <div class="hero" id="top">
     <span class="glow w"></span>
     <span class="glow r"></span>
@@ -437,30 +395,45 @@
 
   <!-- ═══ GAMES ═══ -->
   <section id="games">
-    <span class="watermark" id="wm" aria-hidden="true"></span>
     <div class="wrap">
       <div class="head">
         <div class="head-l">
           <p class="label rv">02 — Games</p>
-          <h2 class="rv">Our first title is in the works.</h2>
+          <h2 class="rv">Our first game is being built right now.</h2>
         </div>
         <div class="head-r">
           <p class="prose rv d1">
-            We're heads-down on it. No announcement date yet — when it's ready,
-            it lands here first, then on the App Store and Google Play.
+            No release date yet. When it's ready it lands here first, then on
+            Google Play and the App Store.
           </p>
         </div>
       </div>
 
-      <div class="card rv d1">
-        <img class="art-seal" src="/assets/seal.png" alt="" width="155" height="220" loading="lazy">
-        <div class="meta">
+      <div class="game">
+        <div class="rv d1">
+          <div class="shot">
+            <img src="/assets/game-hamster.jpg" alt="Hamster Maze — a hamster in a lantern-lit stone maze, with cheese to collect and an exit gate"
+                 width="1100" height="1100" loading="lazy">
+          </div>
+          <p class="cap">Work in progress — art and layout will change before release.</p>
+        </div>
+
+        <div class="meta rv d2">
           <span class="status"><span class="dot" aria-hidden="true"></span>In development</span>
-          <h3>First title</h3>
+          <h3>Hamster Maze</h3>
           <p>
-            Announcement, screenshots and store links will be published on this page.
-            Want a note when it ships? <a href="#contact" style="color:var(--fg)">Get in touch</a>.
+            You're a hamster in a maze that was built to stop you. Grab the cheese,
+            find the gate, and keep moving — something is always closing in behind you.
           </p>
+          <p>
+            Death isn't a punishment here, it's rhythm. You're back in half a second,
+            no menus, no waiting, straight into the next run.
+          </p>
+          <div class="specs">
+            <span>Android first</span>
+            <span>Portrait</span>
+            <span>Unity</span>
+          </div>
         </div>
       </div>
     </div>
@@ -488,7 +461,10 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/seal.png" alt="" width="155" height="220" loading="lazy">
+    <div class="fbrand">
+      <img class="seal" src="/assets/seal.png" alt="" width="155" height="220" loading="lazy">
+      <img class="wm" src="/assets/wordmark2.png" alt="İdiqut Games" width="900" height="169" loading="lazy">
+    </div>
     <p class="copy">© 2026 İdiqut Games. All rights reserved.</p>
     <nav aria-label="Footer">
       <a href="#studio">Studio</a>
@@ -497,8 +473,6 @@
     </nav>
   </div>
 </footer>
-
-<span class="cursor-light" id="clight" aria-hidden="true"></span>
 
 <script>
 (function(){
@@ -519,31 +493,20 @@
     hero.classList.add('no-cine');
   }
 
-  // ── header + kaydirmaya bagli derinlik ──
+  // ── header: hero'yu gecince kagit moduna gecer ──
   var hdr = document.getElementById('hdr');
-  var wm = document.getElementById('wm');
   var glowR = document.querySelector('.hero .glow.r');
   var glowW = document.querySelector('.hero .glow.w');
   var ticking = false;
 
   function frame(){
     var y = window.scrollY || 0;
-    hdr.classList.toggle('solid', y > 24);
+    var trigger = (hero ? hero.offsetHeight : 600) - 72;
+    hdr.classList.toggle('solid', y > trigger);
 
-    if (!reduce) {
+    if (!reduce && y < (hero ? hero.offsetHeight : 900)) {
       if (glowR) glowR.style.transform = 'translateX(-4%) translateY('  + (y * .15) + 'px)';
       if (glowW) glowW.style.transform = 'translateX(-58%) translateY(' + (y * .09) + 'px)';
-
-      if (wm) {
-        var r = wm.parentNode.getBoundingClientRect();
-        var vh = window.innerHeight || 1;
-        var p = (vh / 2 - (r.top + r.height / 2)) / (vh / 2 + r.height / 2);
-        p = Math.max(-1.4, Math.min(1.4, p));
-        wm.style.transform =
-          'translate3d(-50%,calc(-50% + ' + (p * 74).toFixed(1) + 'px),0)' +
-          ' rotate(' + (p * 4).toFixed(2) + 'deg)' +
-          ' scale(' + (1 + Math.abs(p) * .07).toFixed(3) + ')';
-      }
     }
     ticking = false;
   }
@@ -551,24 +514,6 @@
   frame();
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll, {passive:true});
-
-  // ── imlec isigi ──
-  var cl = document.getElementById('clight');
-  if (cl && !reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    var mx = 0, my = 0, pending = false;
-    window.addEventListener('mousemove', function(e){
-      mx = e.clientX; my = e.clientY;
-      if (!cl.classList.contains('lit')) cl.classList.add('lit');
-      if (!pending) {
-        pending = true;
-        requestAnimationFrame(function(){
-          cl.style.transform = 'translate3d(' + mx + 'px,' + my + 'px,0)';
-          pending = false;
-        });
-      }
-    }, {passive:true});
-    document.addEventListener('mouseleave', function(){ cl.classList.remove('lit'); });
-  }
 
   // ── gorunur olunca yumusak giris ──
   var items = document.querySelectorAll('.rv');
