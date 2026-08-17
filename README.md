@@ -3,10 +3,10 @@
 İdiqut Games kurumsal web sitesi. Tek sayfa, statik, hiçbir dış bağımlılığı yok
 (font/script/CDN çağrısı yapmaz — çok hızlı açılır, çerez kullanmaz).
 
-**Tasarım:** hibrit — gövde kâğıt tonu (`#F5F3EE`), hero ve footer tam genişlikte
-siyah sahne. Logo siyah zemin için tasarlandığı için kendi karanlık çerçevesinde
-duruyor; sayfanın geri kalanı aydınlık. Oyun bölümü ustwo Games düzeninde:
-büyük kare görsel + yanında başlık ve açıklama.
+**Tasarım:** baştan sona bej (`#FAF3ED` — logonun kendi zemini), ustwo Games
+düzeninde minimal: bölümler arasında çerçeve/ayraç yok, ayrımı sadece boşluk
+yapıyor. Oyun görseli kolonun tamamını kaplıyor.
+
 
 **Hosting:** GitHub Pages · **Repo:** `sadam7846466-gif/idiqutgames-website` · **Branch:** `main`
 
@@ -67,27 +67,25 @@ dig +short idiqutgames.com A
 
 ### assets/ — logo dosyaları
 
-Kaynak: `~/Downloads/şirket için/logo-v2/idiqut-logo-v2.png` (1254×1254).
-Bağlı-bileşen analiziyle katmanlara ayrıldı, palet-PNG ile sıkıştırıldı.
+Kaynak: `~/Downloads/şirket için/logo-v3/a.png` (1254×1254, krem zeminli).
+Krem zemin şeffaflaştırıldı; her piksel **en yakın referans renge** atanarak
+katmanlara bölündü (eşik kuralları kenar piksellerini kaybediyordu).
 
 | Dosya | Nerede kullanılıyor | Boyut |
 |---|---|---|
-| `art-ink.png` | Hero — kemik beyazı panel + atlı savaşçı (tek mürekkep bloğu) | 73 KB |
-| `art-banner.png` | Hero — kızıl sancak, soldan sağa açılan katman | 24 KB |
-| `art-seal.png` | Hero — mühür, damga animasyonuyla basılır | 5 KB |
-| `wordmark2.png` | Hero ve header yazısı | 10 KB |
-| `seal.png` | Oyun kartı ve footer'daki mühür | 41 KB |
-| `game-hamster.jpg` | Games bölümü — Hamster Maze anahtar görseli (konsept, gerçek ekran görüntüsü değil) | 196 KB |
-| `wordmark-dark.png` | Açık zeminli header için koyu wordmark | 4 KB |
-| `game-hamster-logo.png` | Oyunun kendi logosu (şu an sayfada kullanılmıyor) | 9 KB |
-| `logo-full.png` | Basın kullanımı için tam logo | 66 KB |
-| `og-image.png` | WhatsApp/X/Facebook link önizlemesi (1200×630) | 76 KB |
-| `icon-512.png` `apple-touch-icon.png` `favicon-32.png` | Tarayıcı sekmesi ve telefon ana ekranı (mürekkep bloğu kırpımı) | — |
+| `v3-art-circle.png` | Hero — mavi fırça dairesi, dönerek gelir | 83 KB |
+| `v3-art-figure.png` | Hero — figür + mızrak + tech dokusu, aşağıdan yükselir | 31 KB |
+| `v3-art-banner.png` | Hero — kızıl sancak, soldan sağa açılır | 91 KB |
+| `v3-wordmark.png` | Hero, header ve footer yazısı | 12 KB |
+| `game-hamster.jpg` | Games — Hamster Maze konsept görseli | 196 KB |
+| `logo-full.png` | Basın kullanımı için tam logo | 83 KB |
+| `og-image.png` | Link önizlemesi (1200×630) | 104 KB |
+| `icon-512.png` `apple-touch-icon.png` `favicon-32.png` | Sekme ve ana ekran ikonu | — |
 
-**Marka renkleri:** kızıl `#A80B0A` · arayüz kızılı `#C0141A` · kemik `#D2CDC6` · zemin `#09090B`
+**Marka renkleri:** zemin `#FAF3ED` · kızıl `#A01810` · lacivert `#183048` · siyah `#14141C`
 
-**Açılış animasyonu:** mürekkep bloğu yukarıdan aşağı → sancak soldan sağa →
-mühür basılır → yazı yükselir. Toplam ~2.1 sn.
+**Açılış animasyonu:** daire dönerek gelir → figür aşağıdan yükselir →
+sancak soldan sağa açılır → yazı belirir. Toplam ~2.3 sn.
 
 
 ## Siteyi güncelleme
