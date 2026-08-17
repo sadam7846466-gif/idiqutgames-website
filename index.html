@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>İdiqut Games — Two mobile games in development</title>
-<meta name="description" content="İdiqut Games is a small independent studio making mobile games. Two titles are in development.">
+<title>İdiqut Games — Indie mobile game studio</title>
+<meta name="description" content="İdiqut Games is an indie mobile game studio. Two titles are in development.">
 <link rel="canonical" href="https://idiqutgames.com/">
 <meta name="theme-color" content="#FAF3ED">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://idiqutgames.com/">
 <meta property="og:site_name" content="İdiqut Games">
-<meta property="og:title" content="İdiqut Games — Two mobile games in development">
-<meta property="og:description" content="A small independent studio making mobile games. Two titles are in development.">
+<meta property="og:title" content="İdiqut Games — Indie mobile game studio">
+<meta property="og:description" content="An indie mobile game studio. Two titles are in development.">
 <meta property="og:image" content="https://idiqutgames.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="İdiqut Games">
-<meta name="twitter:description" content="A small independent studio making mobile games.">
+<meta name="twitter:description" content="An indie mobile game studio.">
 <meta name="twitter:image" content="https://idiqutgames.com/assets/og-image.png">
 
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
 <link rel="icon" href="/assets/icon-512.png" sizes="512x512">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="preload" as="image" href="/assets/game-hamster.jpg">
+<link rel="preload" as="image" href="/assets/shot-maze-night.jpg">
 <link rel="preload" as="image" href="/assets/v3-wordmark.png">
 
 <script type="application/ld+json">
@@ -34,22 +34,24 @@
   "url":"https://idiqutgames.com/",
   "logo":"https://idiqutgames.com/assets/icon-512.png",
   "email":"idiqutgames@gmail.com",
-  "description":"Small independent studio making mobile games."
+  "description":"Indie mobile game studio."
 }
 </script>
 
 <style>
   :root{
     --bg:#FAF3ED;
-    --bg-warm:#F2E9E1;
+    --panel:#F2EAE2;
+    --panel-2:#EDE4DB;
     --ink:#17161C;
     --muted:#6F6A66;
     --faint:#A79F96;
-    --red:#A01810;
-    --head:70px;
+    --line:rgba(23,22,28,.11);
+    --accent:#A01810;
+    --head:76px;
     --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
-    --wrap:1080px;
-    --r:22px;
+    --wrap:1240px;
+    --r:16px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -58,217 +60,232 @@
 
   body{
     background:var(--bg);color:var(--ink);
-    font-family:var(--font);font-size:17px;line-height:1.65;
+    font-family:var(--font);font-size:16px;line-height:1.6;
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     overflow-x:hidden;
   }
   img{max-width:100%;height:auto;display:block}
   a{color:inherit}
-  :focus-visible{outline:2px solid var(--red);outline-offset:4px;border-radius:4px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
 
-  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(22px,5.5vw,48px)}
+  .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4.5vw,44px)}
   .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:100}
   .skip:focus{left:0}
 
-  /* ═══ HEADER ═══ */
-  header{
-    position:fixed;inset:0 0 auto 0;height:var(--head);z-index:50;
-    display:flex;align-items:center;
-    background:rgba(250,243,237,0);transition:background .4s ease;
+  /* ═══ koseli parantezli etiket ═══ */
+  .tag{
+    display:inline-block;
+    font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);
   }
-  header.solid{
-    background:rgba(250,243,237,.9);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  }
-  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px}
-  .brand{display:block;flex:none;text-decoration:none;width:clamp(92px,12vw,112px)}
+  .tag::before{content:"[";margin-right:.65em;opacity:.5}
+  .tag::after{content:"]";margin-left:.65em;opacity:.5}
 
-  nav{display:flex;align-items:center;gap:clamp(16px,3vw,32px)}
-  nav a{text-decoration:none;font-size:.84rem;font-weight:500;color:var(--muted);transition:color .22s ease;white-space:nowrap}
-  nav a:hover{color:var(--ink)}
-
-  /* ═══ HERO ═══ */
-  .hero{padding:calc(var(--head) + clamp(52px,9vw,104px)) 0 clamp(20px,3vw,32px)}
-  .kicker{
-    display:inline-flex;align-items:center;gap:10px;
-    font-size:.84rem;color:var(--muted);margin-bottom:clamp(16px,2.2vw,22px);
-  }
-  .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red);flex:none}
-  h1{
-    font-size:clamp(2.3rem,7.4vw,4.5rem);
-    font-weight:700;line-height:.98;letter-spacing:-.022em;
-    text-transform:uppercase;max-width:15ch;
-  }
-
-  /* oklu hap buton — Indiex'ten */
+  /* ═══ hap buton ═══ */
   .pill{
-    display:inline-flex;align-items:center;gap:11px;
-    margin-top:clamp(26px,3.4vw,36px);
-    background:var(--red);color:#FBF6F1;
-    border-radius:100px;padding:13px 22px 13px 24px;
-    font-size:.92rem;font-weight:500;letter-spacing:.005em;
-    text-decoration:none;
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--accent);color:#FBF6F1;
+    border-radius:100px;padding:12px 20px 12px 22px;
+    font-size:.86rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;
+    text-decoration:none;white-space:nowrap;
     transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s ease;
-    box-shadow:0 1px 2px rgba(160,24,16,.18),0 10px 24px -12px rgba(160,24,16,.5);
+    box-shadow:0 1px 2px rgba(160,24,16,.18),0 10px 22px -12px rgba(160,24,16,.5);
   }
-  .pill:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(160,24,16,.2),0 16px 30px -12px rgba(160,24,16,.55)}
+  .pill:hover{transform:translateY(-2px)}
   .pill .a{
     display:inline-flex;align-items:center;justify-content:center;
-    width:24px;height:24px;border-radius:50%;
-    background:rgba(251,246,241,.16);font-size:.8rem;
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(251,246,241,.18);font-size:.75rem;
     transition:transform .25s cubic-bezier(.2,.7,.3,1);
   }
   .pill:hover .a{transform:translateX(3px)}
-  .hero .sub{margin-top:clamp(20px,2.6vw,26px);max-width:46ch;color:var(--muted);font-size:clamp(1.06rem,2.1vw,1.2rem);line-height:1.65}
+
+  .ghost{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--line);border-radius:100px;
+    padding:9px 17px;font-size:.72rem;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;background:transparent;
+    transition:border-color .22s ease,color .22s ease;
+  }
+  .ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* ═══ HEADER — nav sol, logo orta, buton sag ═══ */
+  header{
+    position:fixed;inset:0 0 auto 0;height:var(--head);z-index:60;
+    display:flex;align-items:center;
+    background:rgba(250,243,237,0);
+    border-bottom:1px solid transparent;
+    transition:background .35s ease,border-color .35s ease;
+  }
+  header.solid{
+    background:rgba(250,243,237,.92);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    border-bottom-color:var(--line);
+  }
+  header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
+  header nav{display:flex;align-items:center;gap:clamp(14px,2.2vw,28px)}
+  header nav a{
+    text-decoration:none;font-size:.73rem;font-weight:600;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+    transition:color .2s ease;white-space:nowrap;
+  }
+  header nav a:hover,header nav a.on{color:var(--accent)}
+  .brand{display:block;justify-self:center;width:clamp(86px,10vw,108px)}
+  .hact{justify-self:end;display:flex}
+  @media (max-width:820px){
+    header .wrap{grid-template-columns:auto 1fr}
+    .brand{justify-self:start;order:-1}
+    header nav{justify-self:end;order:1}
+    .hact{display:none}
+  }
+
+  /* ═══ HERO ═══ */
+  .hero{padding:calc(var(--head) + clamp(40px,6vw,72px)) 0 clamp(64px,8vw,104px)}
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(40px,5vw,64px);align-items:center}
+  @media (min-width:980px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.02fr)}}
+
+  .hero h1{
+    margin-top:clamp(18px,2.4vw,24px);
+    font-size:clamp(2.4rem,6.6vw,4.4rem);
+    font-weight:800;line-height:.94;letter-spacing:-.024em;text-transform:uppercase;
+  }
+  .hero .lead{margin-top:clamp(20px,2.6vw,28px);max-width:46ch;color:var(--muted);font-size:clamp(1rem,1.9vw,1.12rem);line-height:1.7}
+
+  .plat{display:flex;align-items:center;gap:11px;margin-top:clamp(24px,3vw,32px);flex-wrap:wrap}
+  .plat .lb{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .plat span.p{
+    border:1px solid var(--line);border-radius:9px;
+    padding:7px 13px;font-size:.76rem;font-weight:600;color:var(--muted);
+    background:var(--panel);
+  }
+  .hero .pill{margin-top:clamp(26px,3.2vw,34px)}
+
+  /* gorsel mozaigi */
+  .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.4vw,16px)}
+  .mcol{display:flex;flex-direction:column;gap:clamp(10px,1.4vw,16px)}
+  @media (min-width:980px){.mcol.off{transform:translateY(clamp(20px,3vw,44px))}}
+  .mosaic img{
+    width:100%;border-radius:var(--r);
+    border:1px solid var(--line);
+    box-shadow:0 1px 2px rgba(23,22,28,.04),0 16px 34px -20px rgba(23,22,28,.3);
+  }
+
+  /* ═══ BOLUM DUZENI ═══ */
+  section{padding:clamp(76px,10vw,132px) 0}
+  h2{
+    font-size:clamp(1.75rem,4vw,2.7rem);
+    font-weight:800;line-height:1.05;letter-spacing:-.02em;text-transform:uppercase;
+    max-width:20ch;margin-top:clamp(14px,1.8vw,20px);
+  }
+  .body{margin-top:clamp(18px,2.4vw,26px);max-width:56ch;color:var(--muted);font-size:1.04rem;line-height:1.74}
+  .body + .body{margin-top:1.05em}
+
+  /* ═══ ABOUT ═══ */
+  .about{display:grid;grid-template-columns:1fr;gap:clamp(40px,5vw,72px);align-items:center}
+  @media (min-width:980px){.about{grid-template-columns:minmax(0,.92fr) minmax(0,1fr)}}
+  .stack{position:relative;padding-bottom:clamp(40px,6vw,72px)}
+  .stack img{border-radius:var(--r);border:1px solid var(--line)}
+  .stack .a1{width:78%;box-shadow:0 18px 40px -22px rgba(23,22,28,.34)}
+  .stack .a2{
+    position:absolute;right:0;bottom:0;width:56%;
+    box-shadow:0 18px 40px -20px rgba(23,22,28,.4);
+  }
+  .rule{height:1px;background:var(--line);margin:clamp(26px,3.4vw,36px) 0}
+  .stats{display:flex;gap:clamp(30px,5vw,60px);flex-wrap:wrap}
+  .stats .n{font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:800;letter-spacing:-.02em;line-height:1}
+  .stats .l{margin-top:8px;font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--faint)}
+
+  /* ═══ EXPERTISE ═══ */
+  .exp{display:grid;grid-template-columns:1fr;gap:clamp(34px,4.4vw,58px);align-items:start}
+  @media (min-width:980px){.exp{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}}
+  .exp .figure img{border-radius:var(--r);border:1px solid var(--line);box-shadow:0 18px 40px -24px rgba(23,22,28,.34)}
+  .cards{display:flex;flex-direction:column;gap:clamp(12px,1.6vw,18px)}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:clamp(20px,2.6vw,30px);
+    transition:background .25s ease,border-color .25s ease,transform .25s ease;
+  }
+  .card:hover{background:var(--panel-2);border-color:rgba(160,24,16,.28);transform:translateY(-2px)}
+  .card .num{font-size:.68rem;font-weight:700;letter-spacing:.16em;color:var(--accent)}
+  .card .num::before{content:"[";margin-right:.55em;opacity:.5}
+  .card .num::after{content:"]";margin-left:.55em;opacity:.5}
+  .card h3{margin-top:12px;font-size:clamp(1.02rem,2vw,1.2rem);font-weight:800;letter-spacing:-.01em;text-transform:uppercase}
+  .card p{margin-top:9px;color:var(--muted);font-size:.96rem;line-height:1.66;max-width:44ch}
 
   /* ═══ PROJELER ═══ */
-  .projects{padding:clamp(56px,8vw,96px) 0 clamp(90px,12vw,150px)}
-  .project + .project{margin-top:clamp(88px,12vw,150px)}
-
-  .pnum{font-size:.76rem;color:var(--faint);margin-bottom:clamp(14px,1.8vw,18px)}
-
-  .frame{
-    border-radius:var(--r);overflow:hidden;background:var(--bg-warm);
-    box-shadow:0 2px 4px rgba(23,22,28,.04),0 26px 60px -22px rgba(23,22,28,.24);
+  .proj{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:clamp(20px,2.6vw,32px);
   }
-  .frame img{width:100%;transition:transform 1.3s cubic-bezier(.2,.7,.25,1)}
-  .frame:hover img{transform:scale(1.025)}
-  .cap{margin-top:13px;font-size:.79rem;color:var(--faint)}
-
-  /* ikinci proje: ayrilmis yer */
-  .slot{
-    border-radius:var(--r);background:var(--bg-warm);
-    aspect-ratio:1/1;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-    text-align:center;padding:32px;
+  .proj + .proj{margin-top:clamp(18px,2.4vw,28px)}
+  .proj .top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(18px,2.4vw,26px)}
+  .proj .top h3{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;letter-spacing:-.018em;text-transform:uppercase}
+  .pgrid{display:grid;grid-template-columns:1fr;gap:clamp(20px,3vw,38px);align-items:center}
+  @media (min-width:860px){.pgrid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+  .pgrid .shot{border-radius:12px;overflow:hidden;background:var(--panel-2);border:1px solid var(--line)}
+  .pgrid .shot img{width:100%;transition:transform 1.2s cubic-bezier(.2,.7,.25,1)}
+  .pgrid .shot:hover img{transform:scale(1.03)}
+  .pgrid .shot.empty{
+    aspect-ratio:1/1;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;text-align:center;padding:28px;
   }
-  .slot img{width:clamp(74px,11vw,108px);opacity:.2}
-  .slot p{font-size:.86rem;color:var(--faint);letter-spacing:.02em;max-width:26ch}
-
-  .ptitle{
-    margin-top:clamp(28px,3.6vw,40px);
-    font-size:clamp(1.8rem,4.6vw,2.7rem);
-    font-weight:700;letter-spacing:-.018em;line-height:1.04;
-    text-transform:uppercase;
-  }
-  .ptag{margin-top:10px;font-size:clamp(1.02rem,2.1vw,1.16rem);color:var(--ink);opacity:.72;letter-spacing:-.012em}
-  .pstatus{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:.83rem;color:var(--muted)}
-  .pstatus::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);flex:none}
-  .pbody{margin-top:20px;max-width:54ch;color:var(--muted);font-size:1.05rem;line-height:1.72}
-  .pbody + .pbody{margin-top:1em}
-
-  /* magaza butonlari — cikinca <a> olacak, simdilik pasif */
-  .stores{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,3vw,32px)}
+  .pgrid .shot.empty img{width:clamp(64px,9vw,92px);opacity:.2}
+  .pgrid .shot.empty p{font-size:.82rem;color:var(--faint)}
+  .pgrid .txt p{color:var(--muted);font-size:1.02rem;line-height:1.72;max-width:48ch}
+  .pgrid .txt p + p{margin-top:.9em}
+  .meta{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:clamp(22px,2.8vw,30px);
+        padding-top:clamp(20px,2.6vw,26px);border-top:1px solid var(--line)}
+  .meta .k{font-size:.66rem;font-weight:700;letter-spacing:.15em;color:var(--accent)}
+  .meta .k::before{content:"[";margin-right:.5em;opacity:.5}
+  .meta .k::after{content:"]";margin-left:.5em;opacity:.5}
+  .meta .v{margin-top:7px;font-size:.94rem;font-weight:600}
+  .stores{display:flex;flex-wrap:wrap;gap:9px;margin-top:clamp(20px,2.6vw,26px)}
   .store{
-    display:inline-flex;align-items:center;gap:9px;
-    border:1px solid rgba(23,22,28,.16);border-radius:11px;
-    padding:10px 16px;font-size:.86rem;font-weight:500;color:var(--muted);
-    background:transparent;
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);border-radius:10px;padding:9px 14px;
+    font-size:.82rem;font-weight:500;color:var(--muted);background:var(--bg);
   }
-  .store .soon{
-    font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--faint);border-left:1px solid rgba(23,22,28,.14);padding-left:9px;
-  }
-
-  .facts{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:clamp(26px,3.4vw,36px)}
-  .facts dt{font-size:.72rem;color:var(--faint);margin-bottom:5px}
-  .facts dd{font-size:.96rem;font-weight:500}
-
-  /* ═══ SECTIONS ═══ */
-  section{padding:clamp(90px,13vw,168px) 0}
-  /* koseli parantezli bolum etiketi — Indiex'ten */
-  .eyebrow{
-    font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--red);margin-bottom:clamp(18px,2.4vw,26px);
-  }
-  .eyebrow::before{content:"[";margin-right:.7em;opacity:.55}
-  .eyebrow::after{content:"]";margin-left:.7em;opacity:.55}
-
-  h2{
-    font-size:clamp(1.9rem,4.8vw,3rem);
-    font-weight:700;line-height:1.06;letter-spacing:-.02em;
-    text-transform:uppercase;max-width:18ch;
-  }
-  .lede{margin-top:clamp(22px,3vw,32px);max-width:56ch;color:var(--muted);font-size:clamp(1.04rem,2vw,1.12rem);line-height:1.75}
-  .lede + .lede{margin-top:1.1em}
-
-  .studio-grid{display:grid;grid-template-columns:1fr;gap:clamp(44px,6vw,76px);align-items:center}
-  @media (min-width:880px){.studio-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}}
-
-  .mark{position:relative;width:min(100%,320px);aspect-ratio:766/808;margin-inline:auto}
-  .mark .al{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-
-  @supports ((-webkit-mask-image:linear-gradient(#000,#000)) or (mask-image:linear-gradient(#000,#000))){
-    .mark .fig{
-      -webkit-mask-image:linear-gradient(to top,#000 0%,#000 40%,transparent 49%,transparent 100%);
-              mask-image:linear-gradient(to top,#000 0%,#000 40%,transparent 49%,transparent 100%);
-      -webkit-mask-size:100% 300%;mask-size:100% 300%;
-      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-      -webkit-mask-position:0% 0%;mask-position:0% 0%;
-    }
-    .mark .ban{
-      -webkit-mask-image:linear-gradient(to right,#000 0%,#000 36%,transparent 50%,transparent 100%);
-              mask-image:linear-gradient(to right,#000 0%,#000 36%,transparent 50%,transparent 100%);
-      -webkit-mask-size:300% 100%;mask-size:300% 100%;
-      -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
-      -webkit-mask-position:100% 0%;mask-position:100% 0%;
-    }
-    .mark .cir{opacity:0;transform:rotate(-24deg) scale(.91);transform-origin:58% 52%}
-  }
-  @keyframes riseUp{from{-webkit-mask-position:0% 0%;mask-position:0% 0%}to{-webkit-mask-position:0% 100%;mask-position:0% 100%}}
-  @keyframes unfurl{from{-webkit-mask-position:100% 0%;mask-position:100% 0%}to{-webkit-mask-position:0% 0%;mask-position:0% 0%}}
-  @keyframes sweep{from{opacity:0;transform:rotate(-24deg) scale(.91)}to{opacity:1;transform:rotate(0) scale(1)}}
-  .mark.on .cir{animation:sweep  .92s cubic-bezier(.24,.7,.3,1)   .04s forwards}
-  .mark.on .fig{animation:riseUp .84s cubic-bezier(.32,.06,.22,1) .42s forwards}
-  .mark.on .ban{animation:unfurl .88s cubic-bezier(.26,.06,.2,1)  .90s forwards}
+  .store .soon{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+               border-left:1px solid var(--line);padding-left:8px}
 
   /* ═══ CONTACT ═══ */
-  .mail{
-    display:inline-flex;align-items:baseline;gap:.5em;margin-top:clamp(22px,3vw,32px);
-    font-size:clamp(1.26rem,4vw,1.95rem);font-weight:500;letter-spacing:-.028em;
-    text-decoration:none;color:var(--ink);
+  .cta{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    padding:clamp(32px,5vw,64px);text-align:center;
   }
-  .mail span.t{
-    background-image:linear-gradient(currentColor,currentColor);
-    background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%;
-    padding-bottom:4px;transition:background-size .35s ease;
-  }
-  .mail:hover span.t{background-size:0% 1px}
-  .mail span.a{transition:transform .3s cubic-bezier(.2,.7,.3,1);display:inline-block}
-  .mail:hover span.a{transform:translateX(6px)}
+  .cta h2{margin-inline:auto;max-width:18ch}
+  .cta .body{margin-inline:auto;text-align:center}
 
-  footer{padding:clamp(50px,6vw,70px) 0 clamp(48px,6vw,62px)}
-  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-  footer .wm{width:94px;opacity:.66}
-  footer .copy{font-size:.8rem;color:var(--faint)}
-  footer nav a{font-size:.8rem;color:var(--faint)}
-  footer nav a:hover{color:var(--ink)}
+  footer{padding:clamp(44px,5vw,64px) 0 clamp(44px,5vw,58px);border-top:1px solid var(--line)}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer .wm{width:92px;opacity:.66}
+  footer .copy{font-size:.78rem;color:var(--faint)}
+  footer nav{display:flex;gap:20px}
+  footer nav a{font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-decoration:none}
+  footer nav a:hover{color:var(--accent)}
 
-  .rv{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.22,.7,.3,1),transform .85s cubic-bezier(.22,.7,.3,1)}
+  /* ═══ REVEAL ═══ */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.7,.3,1),transform .8s cubic-bezier(.22,.7,.3,1)}
   .rv.in{opacity:1;transform:none}
-  .rv.d1{transition-delay:.09s}
-  .rv.d2{transition-delay:.18s}
-  .rv.d3{transition-delay:.27s}
+  .rv.d1{transition-delay:.08s}
+  .rv.d2{transition-delay:.16s}
+  .rv.d3{transition-delay:.24s}
 
   body::after{
-    content:"";position:fixed;inset:0;z-index:9;pointer-events:none;opacity:.02;
+    content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.02;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size:200px 200px;mix-blend-mode:multiply;
   }
 
   @media (prefers-reduced-motion:reduce){
     .rv{opacity:1;transform:none;transition:none}
-    .mark .fig,.mark .ban{-webkit-mask-image:none!important;mask-image:none!important}
-    .mark .cir{opacity:1!important;transform:none!important}
-    .frame:hover img{transform:none}
+    .pgrid .shot:hover img{transform:none}
+    .card:hover{transform:none}
   }
 </style>
 
-<noscript><style>
-  .rv{opacity:1!important;transform:none!important}
-  .mark .fig,.mark .ban{-webkit-mask-image:none!important;mask-image:none!important}
-  .mark .cir{opacity:1!important;transform:none!important}
-</style></noscript>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -276,135 +293,203 @@
 
 <header id="hdr">
   <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <a class="brand" href="#top" aria-label="İdiqut Games — home">
       <img src="/assets/v3-wordmark.png" alt="İdiqut Games" width="900" height="166">
     </a>
-    <nav aria-label="Main">
-      <a href="#projects">Projects</a>
-      <a href="#studio">Studio</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="hact">
+      <a class="pill" href="#projects">Our projects <span class="a" aria-hidden="true">→</span></a>
+    </div>
   </div>
 </header>
 
 <main id="main">
 
+  <!-- ═══ HERO ═══ -->
   <div class="hero" id="top">
     <div class="wrap">
-      <p class="kicker rv">Two projects in development</p>
-      <h1 class="rv d1">Small mobile games, made with care.</h1>
-      <p class="sub rv d2">
-        Nothing is out yet. Both are being built now — they'll be announced
-        on this page first.
-      </p>
-      <a class="pill rv d3" href="#projects">See the projects <span class="a" aria-hidden="true">→</span></a>
-    </div>
-  </div>
-
-  <!-- ═══ PROJELER — iki yer ═══ -->
-  <div class="projects" id="projects">
-    <div class="wrap">
-
-      <!-- 01 -->
-      <article class="project">
-        <p class="pnum rv">01</p>
-        <div class="frame rv">
-          <img src="/assets/game-hamster.jpg"
-               alt="Hamster Maze — a hamster in a lantern-lit stone maze, with cheese to collect and a glowing exit gate"
-               width="1100" height="1100" fetchpriority="high">
-        </div>
-        <p class="cap rv">Work in progress — art and layout will change before release.</p>
-
-        <h2 class="ptitle rv d1">Hamster Maze</h2>
-        <p class="ptag rv d1">A maze runner with a hungry hamster.</p>
-        <p class="pstatus rv d1">In development</p>
-        <p class="pbody rv d2">
-          You're a hamster in a maze that was built to stop you. Grab the cheese,
-          find the gate, and keep moving — something is always closing in behind you.
-        </p>
-        <p class="pbody rv d2">
-          Death isn't a punishment here, it's rhythm. You're back in half a second,
-          no menus, no waiting, straight into the next run.
-        </p>
-
-        <div class="stores rv d2">
-          <span class="store">Google Play<span class="soon">Soon</span></span>
-          <span class="store">App Store<span class="soon">Soon</span></span>
-        </div>
-
-        <dl class="facts rv d3">
-          <div><dt>Platform</dt><dd>Android first</dd></div>
-          <div><dt>Orientation</dt><dd>Portrait</dd></div>
-          <div><dt>Engine</dt><dd>Unity</dd></div>
-          <div><dt>Release</dt><dd>Not announced</dd></div>
-        </dl>
-      </article>
-
-      <!-- 02 — yer ayrildi -->
-      <article class="project">
-        <p class="pnum rv">02</p>
-        <div class="slot rv">
-          <img src="/assets/icon-512.png" alt="" width="512" height="512" loading="lazy">
-          <p>Artwork coming soon</p>
-        </div>
-
-        <h2 class="ptitle rv d1">Second project</h2>
-        <p class="ptag rv d1">Name to be announced.</p>
-        <p class="pstatus rv d1">In development</p>
-        <p class="pbody rv d2">
-          Our second game is in the works. Name, artwork and details will be
-          published here when there's something worth showing.
-        </p>
-
-        <div class="stores rv d2">
-          <span class="store">Google Play<span class="soon">Soon</span></span>
-          <span class="store">App Store<span class="soon">Soon</span></span>
-        </div>
-
-        <dl class="facts rv d3">
-          <div><dt>Platform</dt><dd>Mobile</dd></div>
-          <div><dt>Release</dt><dd>Not announced</dd></div>
-        </dl>
-      </article>
-
-    </div>
-  </div>
-
-  <!-- ═══ STUDIO ═══ -->
-  <section id="studio">
-    <div class="wrap">
-      <p class="eyebrow rv">Studio</p>
-      <div class="studio-grid">
+      <div class="hero-grid">
         <div>
-          <h2 class="rv">A small studio making games for mobile.</h2>
-          <p class="lede rv d1">
-            İdiqut Games is independent and stays small on purpose. One clear idea
-            per game, tuned until it feels right in the hand, and nothing else
-            in the way.
+          <p class="tag rv">Indie games</p>
+          <h1 class="rv d1">Small mobile games, made with care</h1>
+          <p class="lead rv d2">
+            İdiqut Games is an indie studio. Two titles are in development —
+            nothing is out yet, and both will be announced on this page first.
           </p>
-          <p class="lede rv d2">
-            Two games are in development. When they're ready, they go up here first.
-          </p>
+
+          <div class="plat rv d2">
+            <span class="lb">Platform</span>
+            <span class="p">Android</span>
+            <span class="p">iOS</span>
+          </div>
+
+          <a class="pill rv d3" href="#projects">See the projects <span class="a" aria-hidden="true">→</span></a>
         </div>
 
-        <div class="mark" id="mark" role="img" aria-label="İdiqut Games emblem">
-          <img class="al cir" src="/assets/v3-art-circle.png" alt="" width="880" height="928" loading="lazy">
-          <img class="al fig" src="/assets/v3-art-figure.png" alt="" width="880" height="928" loading="lazy">
-          <img class="al ban" src="/assets/v3-art-banner.png" alt="" width="880" height="928" loading="lazy">
+        <div class="mosaic rv d1">
+          <div class="mcol">
+            <img src="/assets/shot-maze-night.jpg" alt="Hamster Maze — a lantern-lit maze at night" width="760" height="760" fetchpriority="high">
+            <img src="/assets/art-hamster.jpg" alt="The hamster character" width="620" height="930" loading="lazy">
+          </div>
+          <div class="mcol off">
+            <img src="/assets/shot-maze-light.jpg" alt="Hamster Maze — a daylight maze level" width="760" height="950" loading="lazy">
+            <img src="/assets/shot-maze-purple.jpg" alt="Hamster Maze — an alternate maze level" width="760" height="760" loading="lazy">
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about">
+        <div class="stack rv">
+          <img class="a1" src="/assets/shot-portrait.jpg" alt="Hamster Maze running on a phone" width="760" height="1643" loading="lazy">
+          <img class="a2" src="/assets/art-cheese.jpg" alt="Cheese, the thing you're after" width="620" height="930" loading="lazy">
+        </div>
+
+        <div>
+          <p class="tag rv">About us</p>
+          <h2 class="rv">We make small games that are hard to put down</h2>
+          <p class="body rv d1">
+            İdiqut Games is independent and stays small on purpose. One clear idea
+            per game, tuned until it feels right in the hand, and nothing else in
+            the way. No clutter, no noise.
+          </p>
+          <div class="rule rv d1"></div>
+          <div class="stats rv d2">
+            <div>
+              <p class="n">2</p>
+              <p class="l">Projects in development</p>
+            </div>
+            <div>
+              <p class="n">Android + iOS</p>
+              <p class="l">Target platforms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERTISE ═══ -->
+  <section id="expertise">
+    <div class="wrap">
+      <p class="tag rv">How we work</p>
+      <h2 class="rv" style="margin-bottom:clamp(34px,4.4vw,56px)">What every game gets</h2>
+
+      <div class="exp">
+        <div class="figure rv">
+          <img src="/assets/art-hamster.jpg" alt="" width="620" height="930" loading="lazy">
+        </div>
+        <div class="cards">
+          <div class="card rv">
+            <p class="num">01</p>
+            <h3>Small by design</h3>
+            <p>We ship focused games, not feature lists. One idea, done properly, beats ten half-finished ones.</p>
+          </div>
+          <div class="card rv d1">
+            <p class="num">02</p>
+            <h3>Feel comes first</h3>
+            <p>Controls, timing and feedback get tuned before anything else. If it doesn't feel good in the hand, it isn't finished.</p>
+          </div>
+          <div class="card rv d2">
+            <p class="num">03</p>
+            <h3>Runs anywhere</h3>
+            <p>Built to be light and fast on the phone you already own — not just on this year's flagship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJELER ═══ -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="tag rv">Portfolio</p>
+      <h2 class="rv" style="margin-bottom:clamp(34px,4.4vw,56px)">In development</h2>
+
+      <!-- 01 -->
+      <article class="proj rv">
+        <div class="top">
+          <p class="tag">01</p>
+          <h3>Hamster Maze</h3>
+        </div>
+        <div class="pgrid">
+          <div class="shot">
+            <img src="/assets/shot-maze-night.jpg" alt="Hamster Maze — a hamster in a lantern-lit maze with cheese to collect" width="760" height="760" loading="lazy">
+          </div>
+          <div class="txt">
+            <p>
+              You're a hamster in a maze that was built to stop you. Grab the cheese,
+              find the gate, and keep moving — something is always closing in behind you.
+            </p>
+            <p>
+              Death isn't a punishment here, it's rhythm. You're back in half a second,
+              no menus, no waiting, straight into the next run.
+            </p>
+            <div class="stores">
+              <span class="store">Google Play<span class="soon">Soon</span></span>
+              <span class="store">App Store<span class="soon">Soon</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <div><p class="k">Status</p><p class="v">In development</p></div>
+          <div><p class="k">Engine</p><p class="v">Unity</p></div>
+          <div><p class="k">Platform</p><p class="v">Android, iOS</p></div>
+          <div><p class="k">Release</p><p class="v">Not announced</p></div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="proj rv d1">
+        <div class="top">
+          <p class="tag">02</p>
+          <h3>Second project</h3>
+        </div>
+        <div class="pgrid">
+          <div class="shot empty">
+            <img src="/assets/icon-512.png" alt="" width="512" height="512" loading="lazy">
+            <p>Artwork coming soon</p>
+          </div>
+          <div class="txt">
+            <p>
+              Our second game is in the works. Name, artwork and details will be
+              published here when there's something worth showing.
+            </p>
+            <div class="stores">
+              <span class="store">Google Play<span class="soon">Soon</span></span>
+              <span class="store">App Store<span class="soon">Soon</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="meta">
+          <div><p class="k">Status</p><p class="v">In development</p></div>
+          <div><p class="k">Platform</p><p class="v">Mobile</p></div>
+          <div><p class="k">Release</p><p class="v">Not announced</p></div>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- ═══ CONTACT ═══ -->
   <section id="contact">
     <div class="wrap">
-      <p class="eyebrow rv">Contact</p>
-      <h2 class="rv">Press, partnerships, or just saying hello.</h2>
-      <p class="lede rv d1">We read everything that comes in and reply to what we can.</p>
-      <a class="pill rv d2" href="mailto:idiqutgames@gmail.com">
-        idiqutgames@gmail.com <span class="a" aria-hidden="true">→</span>
-      </a>
+      <div class="cta rv">
+        <p class="tag">Contact</p>
+        <h2>Press, partnerships, or just saying hello</h2>
+        <p class="body">We read everything that comes in and reply to what we can.</p>
+        <a class="pill" href="mailto:idiqutgames@gmail.com" style="margin-top:clamp(22px,3vw,30px)">
+          idiqutgames@gmail.com <span class="a" aria-hidden="true">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -415,8 +500,8 @@
     <img class="wm" src="/assets/v3-wordmark.png" alt="İdiqut Games" width="900" height="166" loading="lazy">
     <p class="copy">© 2026 İdiqut Games</p>
     <nav aria-label="Footer">
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -425,42 +510,24 @@
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   var hdr   = document.getElementById('hdr');
-  var mark  = document.getElementById('mark');
   var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
-  var canMask = window.CSS && CSS.supports &&
-                (CSS.supports('mask-image','linear-gradient(#000,#000)') ||
-                 CSS.supports('-webkit-mask-image','linear-gradient(#000,#000)'));
 
   if (reduce) {
     items.forEach(function(el){ el.classList.add('in'); });
-    if (mark) mark.classList.add('on');
     hdr.classList.toggle('solid', (window.scrollY||0) > 12);
     return;
   }
 
-  // Tek bir kaydirma dongusu her seyi yurutur.
-  //  - IntersectionObserver yok: geri cagrisini ilk turda kacirdiginda
-  //    icerik, sayfa kaydirilmadigi surece kalici gizli kaliyordu.
-  //  - requestAnimationFrame yok: arka plan sekmesinde durduruluyor ve
-  //    ilk acilis ona bagli kalirsa sayfa bos gorunuyor. Kisilma zaman
-  //    damgasiyla yapiliyor; is zaten sadece birkac sinif degisimi.
+  // Tek dongu: gorunur olani ac + header durumu.
+  // IntersectionObserver / requestAnimationFrame kullanmiyoruz; ikisi de
+  // testte ilk turu kacirip icerigi gizli birakabildi.
   function tick(){
     var vh = window.innerHeight || document.documentElement.clientHeight || 0;
     hdr.classList.toggle('solid', (window.scrollY || 0) > 12);
-
     for (var i = items.length - 1; i >= 0; i--) {
-      var el = items[i], r = el.getBoundingClientRect();
-      if (r.top < vh * 0.94 && r.bottom > 0) {
-        el.classList.add('in');
-        items.splice(i, 1);            // acilani listeden dusur
-      }
-    }
-
-    if (mark && !mark.classList.contains('on')) {
-      var m = mark.getBoundingClientRect();
-      if (m.top < vh * 0.86 && m.bottom > 0) mark.classList.add('on');
+      var r = items[i].getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) { items[i].classList.add('in'); items.splice(i,1); }
     }
   }
 
@@ -472,17 +539,11 @@
     else if (!pending) { pending = setTimeout(function(){ pending = 0; last = now(); tick(); }, 70); }
   }
 
-  tick();                                   // ilk acilis: dogrudan, beklemeden
+  tick();
   window.addEventListener('scroll', schedule, {passive:true});
   window.addEventListener('resize', schedule, {passive:true});
   window.addEventListener('load', tick);
-
-  // Kaydirma olayina da tek basina guvenmiyoruz. Acilacak oge kaldigi
-  // surece dusuk frekansta yokluyoruz; hepsi acilinca kendini kapatir.
-  var poll = setInterval(function(){
-    tick();
-    if (!items.length && (!mark || mark.classList.contains('on'))) clearInterval(poll);
-  }, 250);
+  var poll = setInterval(function(){ tick(); if(!items.length) clearInterval(poll); }, 250);
 })();
 </script>
 
