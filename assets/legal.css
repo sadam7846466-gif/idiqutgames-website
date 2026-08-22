@@ -1,0 +1,264 @@
+/* ═══════════════════════════════════════════════════════════════
+   İdiqut Games — yasal ve destek sayfalarinin ortak stili.
+   index.html'in tasarim dilini paylasir: ayni bej palet, ayni
+   header/footer, ustune uzun metin icin okuma sutunu eklenmistir.
+   Tek fark: bu sayfalarda reveal animasyonu YOK — metin aninda
+   okunabilir olsun diye. Dis bagimlilik yok.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root{
+  --bg:#FAF3ED;
+  --panel:#F2EAE2;
+  --panel-2:#EDE4DB;
+  --ink:#17161C;
+  --muted:#6F6A66;
+  --faint:#A79F96;
+  --line:rgba(23,22,28,.085);
+  --accent:#A01810;
+  --head:76px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Helvetica Neue",sans-serif;
+  --wrap:1240px;
+  --r:24px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--font);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4.5vw,44px)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--bg);padding:12px 18px;z-index:100}
+.skip:focus{left:0}
+
+/* ═══ koseli parantezli etiket ═══ */
+.tag{
+  display:inline-block;
+  font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);
+}
+.tag::before{content:"[";margin-right:.65em;opacity:.5}
+.tag::after{content:"]";margin-left:.65em;opacity:.5}
+
+/* ═══ hap buton ═══ */
+.pill{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#FBF6F1;
+  border-radius:100px;padding:12px 20px 12px 22px;
+  font-size:.86rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;
+  text-decoration:none;white-space:nowrap;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s ease;
+  box-shadow:0 1px 2px rgba(160,24,16,.14),0 12px 26px -14px rgba(160,24,16,.42);
+}
+.pill:hover{transform:translateY(-2px)}
+.pill .a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(251,246,241,.18);font-size:.75rem;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1);
+}
+.pill:hover .a{transform:translateX(3px)}
+
+/* ═══ HEADER — icerik hemen altinda basladigi icin daima opak ═══ */
+header{
+  position:fixed;inset:0 0 auto 0;height:var(--head);z-index:60;
+  display:flex;align-items:center;
+  background:rgba(250,243,237,.92);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(14px,3vw,32px)}
+header nav{display:flex;align-items:center;gap:clamp(14px,2.2vw,30px)}
+header nav.left{justify-self:start}
+header nav.right{justify-self:end}
+header nav a{
+  text-decoration:none;font-size:.73rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  transition:color .2s ease;white-space:nowrap;
+}
+header nav a:hover,header nav a[aria-current="page"]{color:var(--accent)}
+.brand{display:block;justify-self:center;width:clamp(86px,10vw,108px)}
+
+@media (max-width:760px){
+  header .wrap{grid-template-columns:auto 1fr;gap:14px}
+  .brand{justify-self:start;order:-1;width:88px}
+  header nav.left{display:none}
+  header nav.right{justify-self:end;order:1;gap:16px}
+  header nav a{font-size:.68rem;letter-spacing:.1em}
+}
+
+/* ═══ SAYFA BASLIGI ═══ */
+.head{padding:calc(var(--head) + clamp(40px,6vw,68px)) 0 clamp(26px,3.4vw,40px)}
+.head h1{
+  margin-top:clamp(14px,2vw,20px);
+  font-size:clamp(2rem,5.4vw,3.4rem);
+  font-weight:800;line-height:.98;letter-spacing:-.022em;text-transform:uppercase;
+  max-width:20ch;
+}
+.head .lead{
+  margin-top:clamp(16px,2.2vw,24px);max-width:58ch;
+  color:var(--muted);font-size:clamp(1rem,1.8vw,1.08rem);line-height:1.72;
+}
+.dates{
+  display:flex;gap:clamp(20px,3.4vw,44px);flex-wrap:wrap;
+  margin-top:clamp(24px,3vw,32px);padding-top:clamp(20px,2.6vw,26px);
+  border-top:1px solid var(--line);
+}
+.dates .k{font-size:.66rem;font-weight:700;letter-spacing:.15em;color:var(--accent)}
+.dates .k::before{content:"[";margin-right:.5em;opacity:.5}
+.dates .k::after{content:"]";margin-left:.5em;opacity:.5}
+.dates .v{margin-top:7px;font-size:.94rem;font-weight:600}
+
+/* ═══ ICINDEKILER + METIN ═══ */
+.doc{
+  display:grid;grid-template-columns:minmax(0,1fr);
+  gap:clamp(30px,4vw,58px);align-items:start;
+  padding-bottom:clamp(70px,9vw,120px);
+}
+/* grid ogesinin varsayilan min-width:auto degeri, icindeki 520px'lik tablonun
+   sutunu sisirmesine ve sayfanin mobilde yana tasmasina yol aciyordu. */
+.doc > *{min-width:0}
+@media (min-width:980px){.doc{grid-template-columns:minmax(0,250px) minmax(0,1fr)}}
+
+.toc{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(18px,2.2vw,24px);
+}
+@media (min-width:980px){.toc{position:sticky;top:calc(var(--head) + 18px)}}
+.toc .t{font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.toc .t::before{content:"[";margin-right:.5em;opacity:.5}
+.toc .t::after{content:"]";margin-left:.5em;opacity:.5}
+.toc ol{list-style:none;counter-reset:toc;margin-top:14px}
+.toc li{counter-increment:toc}
+.toc a{
+  display:flex;gap:10px;padding:6px 0;
+  font-size:.89rem;line-height:1.45;color:var(--muted);text-decoration:none;
+  transition:color .2s ease;
+}
+.toc a::before{
+  content:counter(toc,decimal-leading-zero);
+  flex:none;font-size:.68rem;font-weight:700;color:var(--faint);padding-top:.28em;
+}
+.toc a:hover{color:var(--accent)}
+
+/* ═══ METIN ═══ */
+article h2{
+  margin-top:clamp(38px,4.6vw,58px);
+  font-size:clamp(1.24rem,2.7vw,1.68rem);
+  font-weight:800;line-height:1.14;letter-spacing:-.016em;text-transform:uppercase;
+  max-width:26ch;
+  scroll-margin-top:calc(var(--head) + 20px);
+}
+article > h2:first-child{margin-top:0}
+article h3{
+  margin-top:clamp(22px,2.6vw,30px);
+  font-size:1rem;font-weight:800;letter-spacing:-.008em;
+}
+article p{margin-top:1em;max-width:70ch;color:var(--muted);font-size:1.02rem;line-height:1.75}
+article h2 + p,article h3 + p{margin-top:.85em}
+article strong{color:var(--ink);font-weight:600}
+/* :not(.pill) sart: aksi halde bu kural, hap butonun beyaz yazisini
+   accent kirmiziya cevirip zeminiyle ayni renge dusuruyordu. */
+article a[href]:not(.pill){
+  color:var(--accent);text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+article ul{list-style:none;margin-top:1em;max-width:70ch}
+article li{
+  position:relative;padding-left:24px;margin-top:.62em;
+  color:var(--muted);font-size:1.02rem;line-height:1.72;
+}
+article li::before{
+  content:"";position:absolute;left:4px;top:.78em;
+  width:8px;height:1px;background:var(--accent);opacity:.55;
+}
+article li strong{color:var(--ink)}
+
+/* vurgu kutusu */
+.note{
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;
+  padding:clamp(18px,2.4vw,26px);margin-top:1.5em;
+}
+.note .t{font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.note .t::before{content:"[";margin-right:.5em;opacity:.5}
+.note .t::after{content:"]";margin-left:.5em;opacity:.5}
+.note p{margin-top:.75em}
+.note ul{margin-top:.75em}
+.note :is(p,li){max-width:66ch}
+
+/* tablo */
+.scroll{max-width:100%;overflow-x:auto;margin-top:1.3em;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.94rem;min-width:520px}
+th{
+  text-align:left;padding:0 18px 11px 0;border-bottom:1px solid var(--line);
+  font-size:.64rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);
+}
+td{
+  padding:13px 18px 13px 0;border-bottom:1px solid var(--line);
+  color:var(--muted);line-height:1.62;vertical-align:top;
+}
+td:first-child{color:var(--ink);font-weight:600}
+tr:last-child td{border-bottom:0}
+
+/* ═══ SSS (destek sayfasi) ═══ */
+.faq{margin-top:1.3em;display:flex;flex-direction:column;gap:10px}
+.faq details{
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;
+  padding:clamp(16px,2vw,22px) clamp(18px,2.2vw,26px);
+  transition:border-color .22s ease,background .22s ease;
+}
+.faq details[open]{background:var(--panel-2);border-color:rgba(160,24,16,.22)}
+.faq summary{
+  display:flex;align-items:flex-start;gap:14px;cursor:pointer;list-style:none;
+  font-size:1rem;font-weight:700;letter-spacing:-.008em;line-height:1.4;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";margin-left:auto;flex:none;
+  font-size:1.15rem;font-weight:400;color:var(--accent);line-height:1;
+  transition:transform .25s cubic-bezier(.2,.7,.3,1);
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details > :is(p,ul){margin-top:.9em}
+.faq details :is(p,li){max-width:64ch}
+
+/* ═══ ILETISIM KARTI ═══ */
+.cta{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(28px,4vw,52px);text-align:center;margin-top:clamp(34px,4.4vw,56px);
+}
+.cta h2{margin:clamp(12px,1.6vw,16px) auto 0;max-width:20ch}
+.cta p{margin:clamp(14px,1.8vw,18px) auto 0;max-width:52ch;color:var(--muted);font-size:1.02rem;line-height:1.72}
+.cta .pill{margin-top:clamp(20px,2.6vw,28px)}
+
+/* ═══ FOOTER ═══ */
+footer{padding:clamp(44px,5vw,64px) 0 clamp(44px,5vw,58px);border-top:1px solid var(--line)}
+footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .wm{width:92px;opacity:.66}
+footer .copy{font-size:.78rem;color:var(--faint)}
+footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer nav a{
+  font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint);text-decoration:none;
+}
+footer nav a:hover{color:var(--accent)}
+footer nav.legal{
+  flex-basis:100%;justify-content:center;
+  margin-top:clamp(22px,3vw,30px);padding-top:clamp(20px,2.6vw,26px);
+  border-top:1px solid var(--line);
+}
+
+/* ═══ KAGIT DOKUSU — ana sayfayla ayni ═══ */
+body::after{
+  content:"";position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.02;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;mix-blend-mode:multiply;
+}

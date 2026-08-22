@@ -12,44 +12,20 @@ yapıyor. Oyun görseli kolonun tamamını kaplıyor.
 
 ---
 
-## ⚠️ YAPILACAK: GoDaddy DNS ayarı
+## ✅ Domain ayarı — tamamlandı
 
-Site yayında ama domain hâlâ GoDaddy'nin park sayfasını gösteriyor.
-Bunu düzeltmek için GoDaddy'de DNS kayıtlarını değiştirmen lazım — 3 dakikalık iş.
+`idiqutgames.com` GitHub Pages'e bağlı ve SSL çalışıyor. `www` de ana adrese
+yönleniyor. Kayıtlar referans olarak dursun:
 
-### Adımlar
+| Type  | Name | Value                        |
+|-------|------|------------------------------|
+| A     | @    | `185.199.108.153`            |
+| A     | @    | `185.199.109.153`            |
+| A     | @    | `185.199.110.153`            |
+| A     | @    | `185.199.111.153`            |
+| CNAME | www  | `sadam7846466-gif.github.io` |
 
-1. https://dcc.godaddy.com/control/portfolio adresine gir
-2. `idiqutgames.com` yanındaki **DNS** / **Manage DNS** butonuna bas
-3. Listede duran hazır kayıtları **sil**:
-   - `A` tipinde, adı `@` olan kayıt (park IP'sine gidiyor)
-   - `CNAME` tipinde, adı `www` olan kayıt
-4. Aşağıdaki **5 kaydı** ekle:
-
-| Type  | Name | Value                        | TTL      |
-|-------|------|------------------------------|----------|
-| A     | @    | `185.199.108.153`            | 1 Hour   |
-| A     | @    | `185.199.109.153`            | 1 Hour   |
-| A     | @    | `185.199.110.153`            | 1 Hour   |
-| A     | @    | `185.199.111.153`            | 1 Hour   |
-| CNAME | www  | `sadam7846466-gif.github.io` | 1 Hour   |
-
-> Evet, 4 tane `A` kaydı ve hepsinin adı `@`. Doğru — GitHub'ın 4 sunucusu var.
-> CNAME değerinin sonundaki nokta önemli değil, GoDaddy kendi ekler.
-
-5. **Save** / **Kaydet**
-
-### Sonra
-
-DNS'in yayılması genelde 10 dakika – 1 saat sürer (bazen 24 saate kadar).
-Sonrasında `https://idiqutgames.com` açılacak. SSL sertifikası GitHub tarafından
-otomatik ve ücretsiz kurulur (birkaç dakika daha sürebilir).
-
-Kontrol etmek için terminalde:
-```bash
-dig +short idiqutgames.com A
-```
-`185.199.10x.153` adreslerini görüyorsan tamamdır.
+Kontrol: `dig +short idiqutgames.com A`
 
 ---
 
@@ -57,8 +33,12 @@ dig +short idiqutgames.com A
 
 | Dosya | Ne işe yarar |
 |---|---|
-| `index.html` | Sitenin tamamı (HTML + CSS + JS tek dosyada) |
-| `assets/` | Logo görselleri — aşağıya bak |
+| `index.html` | Ana sayfa (HTML + CSS + JS tek dosyada) |
+| `privacy.html` | Gizlilik Politikası — **mağaza başvurusu için zorunlu** |
+| `terms.html` | Kullanım Şartları / EULA |
+| `support.html` | Destek sayfası — App Store'un istediği Support URL |
+| `assets/legal.css` | Üç yasal sayfanın ortak stili (ana sayfanın tasarım dili) |
+| `assets/` | Logo ve oyun görselleri — aşağıya bak |
 | `CNAME` | GitHub Pages'e özel domain'i söyler — **silme** |
 | `.nojekyll` | GitHub'ın dosyaları olduğu gibi yayınlamasını sağlar — **silme** |
 | `app-ads.txt` | **AdMob için zorunlu.** Google bunu `idiqutgames.com/app-ads.txt` adresinde arar |
@@ -90,7 +70,7 @@ sancak soldan sağa açılır → yazı belirir. Toplam ~2.3 sn.
 
 ## Siteyi güncelleme
 
-`index.html`'i düzenle, sonra:
+İlgili `.html` dosyasını düzenle, sonra:
 
 ```bash
 cd ~/idiqutgames-website
@@ -99,21 +79,56 @@ git add -A && git commit -m "site güncellendi" && git push
 
 Push'tan ~1 dakika sonra canlıda görünür.
 
+## Yasal sayfalar
+
+`privacy.html`, `terms.html` ve `support.html` 22 Ağustos 2026'da eklendi.
+Üçü de ana sayfanın tasarım dilini paylaşıyor (`assets/legal.css`), dış
+bağımlılığı yok, mobilde tablolar kendi kutusunda yana kayıyor.
+
+**Neye göre yazıldılar.** Metinler şu varsayımlarla hazırlandı — oyunun
+gerçeği bunlardan farklıysa metni de değiştir:
+
+- Oyunda **Google AdMob reklamı** var
+- **Google Analytics for Firebase** + **Crashlytics** var
+- Motor **Unity**
+- **Uygulama içi satın alma** var, ödeme Apple/Google üzerinden
+- Hesap sistemi, giriş, sohbet, bulut kayıt **yok** — ilerleme sadece cihazda
+- Hedef kitle genel; 13 yaş altı için koruyucu maddeler yazıldı (kişiselleştirilmemiş reklam, COPPA)
+
+### Yetkili mahkeme
+
+`terms.html` → **15. Governing law**: İstanbul mahkemeleri ve icra daireleri
+yetkili. Şirket başka bir ile taşınırsa oradaki tek cümleyi güncellemek yeterli.
+
+### Mağaza başvurusunda bu adresler istenecek
+
+| Nerede | Alan | Yazılacak adres |
+|---|---|---|
+| App Store Connect | Privacy Policy URL | `https://idiqutgames.com/privacy.html` |
+| App Store Connect | Support URL | `https://idiqutgames.com/support.html` |
+| App Store Connect | EULA (özel sözleşme) | `https://idiqutgames.com/terms.html` |
+| Play Console | Gizlilik politikası | `https://idiqutgames.com/privacy.html` |
+| Play Console | Veri silme talebi URL'i | `https://idiqutgames.com/support.html#data-deletion` |
+| Play Console | Destek e-postası | `idiqutgames@gmail.com` |
+
+Sürüm tarihi üç sayfanın da başında (`Effective` / `Last updated`). Metni
+değiştirdiğinde `Last updated` tarihini de güncelle.
+
 ## Yayına girince yapılacaklar
 
 - [x] İletişim adresi: `idiqutgames@gmail.com` (sitede yayında)
-- [ ] `idiqutgames.com/app-ads.txt` açılıyor mu tarayıcıdan kontrol et
+- [x] Domain + SSL çalışıyor
+- [x] `idiqutgames.com/app-ads.txt` açılıyor (HTTP 200)
+- [x] Gizlilik, Şartlar ve Destek sayfaları yayında
 - [ ] AdMob → Apps → App settings → **Developer website** alanına `idiqutgames.com` yaz
-- [ ] Google Search Console'a siteyi ekle
+- [ ] Google Search Console'a siteyi ekle ve `sitemap.xml`'i gönder
 
 ## Hamster Maze çıkınca
 
 - `game-hamster.jpg` yerine **gerçek ekran görüntüsü** koy (şu anki konsept görseli)
 - Google Play / App Store butonları ekle
 - Oyunun kendi sayfası (`hamster-maze.html`) — ustwo'daki "More →" gibi
-- `privacy.html` — Gizlilik Politikası (App Store & Google Play için **zorunlu**)
-- `terms.html` — Kullanım Şartları
-- `support.html` — Destek sayfası (App Store'un istediği Support URL)
+- `support.html` içindeki SSS'yi oyuncudan gelen gerçek sorulara göre güncelle
 
 ## Oyun çıkınca yapılacaklar
 

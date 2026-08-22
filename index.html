@@ -265,9 +265,15 @@
   footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
   footer .wm{width:92px;opacity:.66}
   footer .copy{font-size:.78rem;color:var(--faint)}
-  footer nav{display:flex;gap:20px}
+  footer nav{display:flex;gap:20px;flex-wrap:wrap}
   footer nav a{font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-decoration:none}
   footer nav a:hover{color:var(--accent)}
+  /* yasal linkler kendi satirinda, ayrac cizgisinin altinda */
+  footer nav.legal{
+    flex-basis:100%;justify-content:center;
+    margin-top:clamp(22px,3vw,30px);padding-top:clamp(20px,2.6vw,26px);
+    border-top:1px solid var(--line);
+  }
 
   /* ═══ REVEAL ═══ */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.7,.3,1),transform .8s cubic-bezier(.22,.7,.3,1)}
@@ -506,6 +512,11 @@
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
+    </nav>
+    <nav class="legal" aria-label="Legal">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/support.html">Support</a>
     </nav>
   </div>
 </footer>
